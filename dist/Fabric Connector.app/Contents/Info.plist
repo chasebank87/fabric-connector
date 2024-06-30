@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>main</string>
+	<string>Fabric Connector</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -20,15 +20,15 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>main</string>
+	<string>Fabric Connector</string>
 	<key>CFBundleIconFile</key>
 	<string>fabric-logo-gif.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.pythonmac.unspecified.main</string>
+	<string>org.pythonmac.unspecified.FabricConnector</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>main</string>
+	<string>Fabric Connector</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -101,7 +101,5 @@
 	</dict>
 	<key>cfIconFile</key>
 	<string>assets/icons/fabric-brain.icns</string>
-	<key>cfbundlename</key>
-	<string>Fabric Connector</string>
 </dict>
 </plist>
