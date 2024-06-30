@@ -1,4 +1,4 @@
-# MyApp README
+# Fabric Connector README
 
 ## Overview
 
@@ -6,7 +6,7 @@ This project consists of a FastAPI application and a macOS menu bar application 
 
 ## Table of Contents
 
-- [MyApp README](#myapp-readme)
+- [Fabric Connector README](#fabric-connector-readme)
   - [Overview](#overview)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
