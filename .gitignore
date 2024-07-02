@@ -1,0 +1,18 @@
+# Ignore build directory
+build/
+
+# Ignore dist directory
+dist/
+
+# Ignore main.spec file
+main.spec
+
+# Optional: Ignore node_modules if you're using npm
+# node_modules/
+
+# Optional: Ignore .DS_Store files on macOS
+# .DS_Store
+
+# Optional: Ignore IDE-specific files
+# .vscode/
+# .idea/
