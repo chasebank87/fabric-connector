@@ -1,67 +1,179 @@
-# Fabric YT Proxy
 
-A Mac menu bar application that proxies commands to Fabric and YT.
+## Overview
 
-## Description
+FabricYTProxy is a Python-based application that integrates with Fabric and YT binaries to provide a proxy service. It includes a FastAPI server for handling API requests and a system tray application for managing the API server status. The application supports both macOS and Windows platforms.
 
-This application runs in the background as a menu bar icon on macOS. It provides an API that proxies commands to Fabric and YT, which are tools for AI-assisted task automation.
+## Table of Contents
 
-## Features
-
-- Mac menu bar application with a brain icon
-- FastAPI-based API for proxying commands
-- Integration with Fabric and YT tools
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Development](#development)
+- [License](#license)
 
 ## Installation
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/fabric_yt_proxy.git
-   cd fabric_yt_proxy
-   ```
+### Prerequisites
 
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+Ensure you have Python 3.7+ installed on your system. You will also need to have the Fabric and YT binaries installed and accessible in your system's PATH.
 
-3. Install the application:
-   ```
-   pip install -e .
-   ```
+### Steps
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/fabricytproxy.git
+    cd fabricytproxy
+    ```
+
+2. Install the required Python packages:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+3. Ensure the paths to the Fabric and YT binaries are correctly set in the code:
+    ```python
+    FABRIC_PATH = "/path/to/fabric"
+    YT_PATH = "/path/to/yt"
+    ```
+
+## Dependencies
+
+The project relies on several Python packages, which are listed in `requirements.txt`:
+
+- `rumps==0.4.0`
+- `fastapi==0.95.1`
+- `uvicorn==0.22.0`
+- `pydantic==1.10.7`
+- `requests==2.30.0`
+- `pystray==0.19.4`
+- `pillow==9.5.0`
+- `pyinstaller==5.10.1`
+- `py2app==0.28.6`
+
+## Configuration
+
+### Environment Variables
+
+You can configure the paths to the Fabric and YT binaries by setting the following environment variables:
+
+```sh
+export FABRIC_PATH="/path/to/fabric"
+export YT_PATH="/path/to/yt"
+```
+
+Alternatively, you can directly modify the paths in the code.
 
 ## Usage
 
-1. Run the application:
-   ```
-   fabric_yt_proxy
-   ```
+### Running the Application
 
-2. The brain icon will appear in your Mac's menu bar.
+To start the application, run:
 
-3. Click on the icon to access the menu options:
-   - Start API: Starts the FastAPI server
-   - Stop API: Stops the FastAPI server
+```sh
+python main.py
+```
 
-4. Once the API is started, you can send POST requests to:
-   - `http://127.0.0.1:8000/fabric` for Fabric commands
-   - `http://127.0.0.1:8000/yt` for YT commands
+This will start the system tray application and the FastAPI server.
 
-   Example using curl:
-   ```
-   curl -X POST "http://127.0.0.1:8000/fabric" -H "Content-Type: application/json" -d '{"command": "your_fabric_command_here"}'
-   ```
+### System Tray Application
 
-## Requirements
+The system tray application provides options to:
 
-- macOS
-- Python 3.7 or higher
-- Fabric and YT tools installed (https://github.com/danielmiessler/fabric)
+- Check API status
+- Start/Stop the API server
+- Open API documentation
+- Exit the application
 
-## Contributing
+### API Endpoints
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+The FastAPI server exposes several endpoints:
+
+#### POST `/fabric`
+
+Runs the Fabric binary with the provided command and returns the output.
+
+**Request Body:**
+```json
+{
+  "pattern": "pattern_name",
+  "data": "input_data"
+}
+```
+
+**Response:**
+```json
+{
+  "output": "result_output"
+}
+```
+
+#### POST `/yt`
+
+Runs the YT binary with the provided command and returns the output.
+
+**Request Body:**
+```json
+{
+  "pattern": "pattern_name",
+  "url": "video_url"
+}
+```
+
+**Response:**
+```json
+{
+  "output": "result_output"
+}
+```
+
+#### GET `/patterns`
+
+Returns a list of available patterns from the Fabric binary.
+
+**Response:**
+```json
+{
+  "data": {
+    "patterns": [
+      {"name": "pattern1"},
+      {"name": "pattern2"}
+    ]
+  }
+}
+```
+
+## Development
+
+### Building for macOS
+
+To build a macOS application bundle, use `pyinstaller`:
+
+```sh
+pyinstaller main.spec
+```
+
+### Building for Windows
+
+To build a Windows executable, use `pyinstaller`:
+
+```sh
+pyinstaller main.spec
+```
+
+### Running Tests
+
+To run tests, use:
+
+```sh
+pytest tests/
+```
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+For more information, please refer to the [documentation](http://127.0.0.1:8000/docs).
