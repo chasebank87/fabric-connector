@@ -19,6 +19,8 @@ FabricYTProxy is a Python-based application that integrates with Fabric and YT b
 
 Ensure you have Python 3.7+ installed on your system. You will also need to have the Fabric and YT binaries installed and accessible in your system's PATH.
 
+Portable executables are available for MacOS and Windows (Releases)[https://github.com/chasebank87/fabric-connector/releases]
+
 ### Steps
 
 1. Clone the repository:
