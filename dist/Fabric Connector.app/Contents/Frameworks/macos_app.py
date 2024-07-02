@@ -1,1 +1,0 @@
-../Resources/macos_app.py

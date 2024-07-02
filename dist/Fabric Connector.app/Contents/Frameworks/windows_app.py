@@ -1,1 +1,0 @@
-../Resources/windows_app.py

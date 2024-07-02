@@ -1,1 +1,0 @@
-../Resources/proxy.py

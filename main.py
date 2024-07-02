@@ -1,6 +1,5 @@
 import sys
 import os
-from macos_app import run
 
 if sys.platform == "darwin":
     from macos_app import run
