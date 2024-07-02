@@ -6,4 +6,4 @@ requests==2.30.0
 pystray==0.19.4
 pillow==9.5.0
 pyinstaller==5.10.1
-py2app==0.28.6
+pyobjc==10.3.1

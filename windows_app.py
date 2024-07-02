@@ -58,7 +58,7 @@ class FabricYTProxyApp:
             self.icon.notify("API Not Running", "The API server is not currently active")
 
     def open_api_docs(self):
-        webbrowser.open('http://127.0.0.1:8000/docs')
+        webbrowser.open('http://127.0.0.1:49152/docs')
 
     def exit_app(self):
         self.stop_api()
