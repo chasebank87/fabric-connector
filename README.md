@@ -1,149 +1,67 @@
-# Fabric Connector README
+# Fabric YT Proxy
 
-## Overview
+A Mac menu bar application that proxies commands to Fabric and YT.
 
-This project consists of a FastAPI application and a macOS menu bar application built using Rumps. The FastAPI application provides endpoints for interacting with Fabric and YouTube transcription services, while the Rumps application provides a user interface to monitor and interact with the FastAPI service.
+## Description
 
-## Table of Contents
+This application runs in the background as a menu bar icon on macOS. It provides an API that proxies commands to Fabric and YT, which are tools for AI-assisted task automation.
 
-- [Fabric Connector README](#fabric-connector-readme)
-  - [Overview](#overview)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Project Structure](#project-structure)
-  - [API Endpoints](#api-endpoints)
-    - [Fabric Routes](#fabric-routes)
-      - [`GET /get-patterns`](#get-get-patterns)
-      - [`POST /run-fabric`](#post-run-fabric)
-    - [YouTube Routes](#youtube-routes)
-      - [`GET /transcribe`](#get-transcribe)
-  - [Rumps Application](#rumps-application)
-    - [Key Components](#key-components)
-  - [Contributing](#contributing)
-  - [License](#license)
+## Features
+
+- Mac menu bar application with a brain icon
+- FastAPI-based API for proxying commands
+- Integration with Fabric and YT tools
 
 ## Installation
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/your-repo/myapp.git
-    cd myapp
-    ```
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/fabric_yt_proxy.git
+   cd fabric_yt_proxy
+   ```
 
-2. Create a virtual environment and activate it:
-    ```sh
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-3. Install the required dependencies:
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-4. Ensure you have the `fabric` and `yt` binaries installed and accessible in your PATH.
+3. Install the application:
+   ```
+   pip install -e .
+   ```
 
 ## Usage
 
-To run the application, execute the following command:
-```sh
-python main.py
-```
+1. Run the application:
+   ```
+   fabric_yt_proxy
+   ```
 
-This will start the FastAPI server on port `49152` and the Rumps application in the macOS menu bar.
+2. The brain icon will appear in your Mac's menu bar.
 
-## Project Structure
+3. Click on the icon to access the menu options:
+   - Start API: Starts the FastAPI server
+   - Stop API: Stops the FastAPI server
 
-```
-myapp/
-├── main.py
-├── routes/
-│   ├── fabric_routes.py
-│   └── yt_routes.py
-├── assets/
-│   └── icons/
-│       └── fabric-brain.icns
-├── requirements.txt
-└── README.md
-```
+4. Once the API is started, you can send POST requests to:
+   - `http://127.0.0.1:8000/fabric` for Fabric commands
+   - `http://127.0.0.1:8000/yt` for YT commands
 
-- **main.py**: Entry point for the application.
-- **routes/**: Contains route definitions for the FastAPI application.
-  - **fabric_routes.py**: Routes related to Fabric operations.
-  - **yt_routes.py**: Routes related to YouTube transcription.
-- **assets/**: Contains static assets like icons.
-- **requirements.txt**: Lists the Python dependencies.
+   Example using curl:
+   ```
+   curl -X POST "http://127.0.0.1:8000/fabric" -H "Content-Type: application/json" -d '{"command": "your_fabric_command_here"}'
+   ```
 
-## API Endpoints
+## Requirements
 
-### Fabric Routes
-
-#### `GET /get-patterns`
-
-Runs the Fabric binary with the `--list` option and returns the output.
-
-**Response:**
-```json
-{
-  "patterns": ["pattern1", "pattern2", ...]
-}
-```
-
-#### `POST /run-fabric`
-
-Runs the Fabric binary with the provided command and returns the output.
-
-**Request Body:**
-```json
-{
-  "pattern": "pattern_name",
-  "data": "input_data"
-}
-```
-
-**Response:**
-```json
-{
-  "output": "result_output"
-}
-```
-
-### YouTube Routes
-
-#### `GET /transcribe`
-
-Runs the yt binary with the `--transcribe` option and returns the output.
-
-**Query Parameters:**
-- `url`: The URL of the YouTube video to transcribe.
-
-**Response:**
-```json
-{
-  "transcription": ["line1", "line2", ...]
-}
-```
-
-## Rumps Application
-
-The Rumps application provides a macOS menu bar interface with the following features:
-
-- **API Status**: Displays whether the FastAPI server is running or not.
-- **Open API Docs**: Opens the FastAPI documentation in the default web browser.
-- **Quit**: Stops the FastAPI server and quits the application.
-
-### Key Components
-
-- **MyApp Class**: Inherits from `rumps.App` and initializes the menu items.
-- **check_port Method**: Periodically checks if the FastAPI server is running.
-- **open_api_docs Method**: Opens the API documentation in a web browser.
-- **quit_app Method**: Stops the FastAPI server and quits the application.
+- macOS
+- Python 3.7 or higher
+- Fabric and YT tools installed (https://github.com/danielmiessler/fabric)
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
