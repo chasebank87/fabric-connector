@@ -33,6 +33,10 @@ class Command(BaseModel):
 class Model(BaseModel):
     model: str
 
+class UpdatePatternRequest(BaseModel):
+    pattern: str
+    content: str
+
 class FabricRequest(BaseModel):
     pattern: str
     model: str
@@ -48,10 +52,12 @@ if sys.platform == "darwin":
     HOME_DIR = os.path.expanduser("~")
     FABRIC_PATH = os.path.join(HOME_DIR, ".local", "bin", "fabric")
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt")
+    PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns")
 elif sys.platform == "win32":
     HOME_DIR = os.path.expanduser("~").replace("Users", "home").replace("C:", "")
     FABRIC_PATH = os.path.join(HOME_DIR, ".local", "bin", "fabric").replace("\\", "/")
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt").replace("\\", "/")
+    PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns").replace("\\", "/")
 else:
     print("Unsupported operating system")
     sys.exit(1)
@@ -166,6 +172,39 @@ async def get_patterns():
     else:
         logging.error(f"Error retrieving patterns: {str(result)}")
         raise HTTPException(status_code=500, detail=str(result))
+
+@app.post("/update_pattern")
+async def update_pattern(request: UpdatePatternRequest):
+    """
+    Updates pattern contents or creates new patterns
+    """
+    try:
+        # Construct the full path for the pattern file
+        pattern_file_path = os.path.join(PATTERN_PATH, request.pattern, 'system.md')
+        
+        # Check if the file already exists
+        file_existed = os.path.exists(pattern_file_path)
+
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(pattern_file_path), exist_ok=True)
+
+        # Write the content to the file
+        with open(pattern_file_path, 'w') as f:
+            f.write(request.content)
+
+        if file_existed:
+            logging.info(f"Pattern '{request.pattern}' updated successfully")
+            return {"message": f"Pattern '{request.pattern}' updated successfully"}
+        else:
+            logging.info(f"Pattern '{request.pattern}' created successfully")
+            return {"message": f"Pattern '{request.pattern}' created successfully"}
+
+    except IOError as e:
+        logging.error(f"Error writing pattern file: {e}")
+        raise HTTPException(status_code=500, detail=f"Error writing pattern file: {str(e)}")
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")
 
 server = None
 

@@ -1,0 +1,50 @@
+2024-07-04 14:33:29,743 - INFO - Starting API server
+2024-07-04 14:33:29,756 - INFO - Started server process [1703]
+2024-07-04 14:33:29,756 - INFO - Waiting for application startup.
+2024-07-04 14:33:29,756 - INFO - Application startup complete.
+2024-07-04 14:33:29,757 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 14:33:40,206 - INFO - 127.0.0.1:49854 - "GET /docs HTTP/1.1" 200
+2024-07-04 14:33:40,312 - INFO - 127.0.0.1:49854 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 14:33:59,617 - INFO - Pattern 'test_pattern' created successfully
+2024-07-04 14:33:59,618 - INFO - 127.0.0.1:49855 - "POST /update_pattern HTTP/1.1" 200
+2024-07-04 14:34:08,095 - INFO - Retrieving patterns
+2024-07-04 14:34:09,558 - INFO - Patterns retrieved successfully
+2024-07-04 14:34:09,559 - INFO - 127.0.0.1:49873 - "GET /patterns HTTP/1.1" 200
+2024-07-04 14:34:09,560 - INFO - Retrieving patterns
+2024-07-04 14:34:10,546 - INFO - Patterns retrieved successfully
+2024-07-04 14:34:10,547 - INFO - 127.0.0.1:49880 - "GET /patterns HTTP/1.1" 200
+2024-07-04 14:34:10,548 - INFO - Retrieving models
+2024-07-04 14:34:11,730 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 14:34:11,731 - INFO - 127.0.0.1:49873 - "GET /models HTTP/1.1" 200
+2024-07-04 14:34:11,732 - INFO - Retrieving patterns
+2024-07-04 14:34:13,564 - INFO - Patterns retrieved successfully
+2024-07-04 14:34:13,564 - INFO - 127.0.0.1:49880 - "GET /patterns HTTP/1.1" 200
+2024-07-04 14:34:13,565 - INFO - Retrieving models
+2024-07-04 14:34:14,773 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 14:34:14,773 - INFO - 127.0.0.1:49873 - "GET /models HTTP/1.1" 200
+2024-07-04 14:34:14,774 - INFO - Retrieving models
+2024-07-04 14:34:15,986 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 14:34:15,987 - INFO - 127.0.0.1:49880 - "GET /models HTTP/1.1" 200
+2024-07-04 14:34:25,026 - INFO - Retrieving patterns
+2024-07-04 14:34:26,002 - INFO - Patterns retrieved successfully
+2024-07-04 14:34:26,002 - INFO - 127.0.0.1:49890 - "GET /patterns HTTP/1.1" 200
+2024-07-04 14:34:26,005 - INFO - Retrieving models
+2024-07-04 14:34:27,197 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 14:34:27,198 - INFO - 127.0.0.1:49890 - "GET /models HTTP/1.1" 200
+2024-07-04 14:36:05,737 - INFO - Pattern 'test_pattern' updated successfully
+2024-07-04 14:36:05,737 - INFO - 127.0.0.1:49982 - "POST /update_pattern HTTP/1.1" 200
+2024-07-04 14:37:45,160 - INFO - Starting API server
+2024-07-04 14:37:45,173 - INFO - Started server process [7046]
+2024-07-04 14:37:45,173 - INFO - Waiting for application startup.
+2024-07-04 14:37:45,174 - INFO - Application startup complete.
+2024-07-04 14:37:45,174 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 14:37:50,175 - INFO - 127.0.0.1:51591 - "GET /docs HTTP/1.1" 200
+2024-07-04 14:37:50,306 - INFO - 127.0.0.1:51591 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 14:38:05,461 - INFO - Pattern 'test_pattern' created successfully
+2024-07-04 14:38:05,461 - INFO - 127.0.0.1:51592 - "POST /update_pattern HTTP/1.1" 200
+2024-07-04 14:38:08,793 - INFO - Retrieving patterns
+2024-07-04 14:38:09,831 - INFO - Patterns retrieved successfully
+2024-07-04 14:38:09,832 - INFO - 127.0.0.1:51622 - "GET /patterns HTTP/1.1" 200
+2024-07-04 14:38:09,835 - INFO - Retrieving models
+2024-07-04 14:38:11,062 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 14:38:11,063 - INFO - 127.0.0.1:51622 - "GET /models HTTP/1.1" 200
