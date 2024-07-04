@@ -1,0 +1,194 @@
+2024-07-02 23:52:48,032 - INFO - Starting API server
+2024-07-02 23:52:48,050 - INFO - Started server process [42140]
+2024-07-02 23:52:48,050 - INFO - Waiting for application startup.
+2024-07-02 23:52:48,050 - INFO - Application startup complete.
+2024-07-02 23:52:48,050 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-02 23:53:06,631 - INFO - 127.0.0.1:55337 - "GET /docs HTTP/1.1" 200
+2024-07-02 23:53:06,743 - INFO - 127.0.0.1:55337 - "GET /openapi.json HTTP/1.1" 200
+2024-07-02 23:53:18,529 - INFO - Setting model to: gpt-4-turbo
+2024-07-02 23:53:19,837 - INFO - Model set successfully
+2024-07-02 23:53:19,837 - INFO - 127.0.0.1:55339 - "POST /set_model HTTP/1.1" 200
+2024-07-04 02:23:21,440 - INFO - Starting API server
+2024-07-04 02:23:21,451 - INFO - Started server process [85470]
+2024-07-04 02:23:21,451 - INFO - Waiting for application startup.
+2024-07-04 02:23:21,452 - INFO - Application startup complete.
+2024-07-04 02:23:21,452 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 02:23:37,603 - INFO - 127.0.0.1:50562 - "GET /docs HTTP/1.1" 200
+2024-07-04 02:23:37,690 - INFO - 127.0.0.1:50562 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 02:23:40,395 - INFO - Retrieving models
+2024-07-04 02:23:41,973 - INFO - 127.0.0.1:50562 - "GET /models HTTP/1.1" 500
+2024-07-04 02:23:41,973 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 428, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 84, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 163, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/api.py", line 94, in get_models
+    filtered_models = [
+  File "/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/api.py", line 96, in <listcomp>
+    if model.strip() and model.strip() not in [
+AttributeError: 'dict' object has no attribute 'strip'
+2024-07-04 02:25:00,601 - INFO - Starting API server
+2024-07-04 02:25:00,613 - INFO - Started server process [87569]
+2024-07-04 02:25:00,614 - INFO - Waiting for application startup.
+2024-07-04 02:25:00,614 - INFO - Application startup complete.
+2024-07-04 02:25:00,614 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 02:25:08,316 - INFO - 127.0.0.1:50619 - "GET /docs HTTP/1.1" 200
+2024-07-04 02:25:08,457 - INFO - 127.0.0.1:50619 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 02:25:11,422 - INFO - Retrieving models
+2024-07-04 02:25:12,977 - ERROR - Unexpected result type: <class 'list'>. Content: [{'name': 'GPT Models:'}, {'name': 'gpt-3.5-turbo'}, {'name': 'gpt-3.5-turbo-0125'}, {'name': 'gpt-3.5-turbo-1106'}, {'name': 'gpt-3.5-turbo-16k'}, {'name': 'gpt-3.5-turbo-instruct'}, {'name': 'gpt-3.5-turbo-instruct-0914'}, {'name': 'gpt-4'}, {'name': 'gpt-4-0125-preview'}, {'name': 'gpt-4-0613'}, {'name': 'gpt-4-1106-preview'}, {'name': 'gpt-4-turbo'}, {'name': 'gpt-4-turbo-2024-04-09'}, {'name': 'gpt-4-turbo-preview'}, {'name': 'gpt-4o'}, {'name': 'gpt-4o-2024-05-13'}, {'name': 'Local Models:'}, {'name': 'mxbai-embed-large:latest'}, {'name': 'command-r:35b'}, {'name': 'falcon:40b'}, {'name': 'falcon:180b'}, {'name': 'all-minilm:33m'}, {'name': 'avr/sfr-embedding-mistral:latest'}, {'name': 'snowflake-arctic-embed:latest'}, {'name': 'hellord/e5-mistral-7b-instruct:Q4_0'}, {'name': 'nomic-embed-text:latest'}, {'name': 'llama3:70b'}, {'name': 'mixtral:latest'}, {'name': 'gemma:latest'}, {'name': 'mistral:latest'}, {'name': 'phi3:latest'}, {'name': 'llama3:latest'}, {'name': 'llama2:latest'}, {'name': 'Claude Models:'}, {'name': 'claude-3-opus-20240229'}, {'name': 'claude-3-sonnet-20240229'}, {'name': 'claude-3-haiku-20240307'}, {'name': 'claude-2.1'}, {'name': 'Google Models:'}]
+2024-07-04 02:25:12,977 - INFO - 127.0.0.1:50619 - "GET /models HTTP/1.1" 500
+2024-07-04 02:26:01,563 - INFO - Starting API server
+2024-07-04 02:26:01,575 - INFO - Started server process [88873]
+2024-07-04 02:26:01,575 - INFO - Waiting for application startup.
+2024-07-04 02:26:01,575 - INFO - Application startup complete.
+2024-07-04 02:26:01,576 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 02:26:03,989 - INFO - 127.0.0.1:50668 - "GET /docs HTTP/1.1" 200
+2024-07-04 02:26:04,078 - INFO - 127.0.0.1:50668 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 02:26:06,301 - INFO - Retrieving models
+2024-07-04 02:26:08,481 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:26:08,481 - INFO - 127.0.0.1:50668 - "GET /models HTTP/1.1" 200
+2024-07-04 02:26:45,924 - INFO - Retrieving patterns
+2024-07-04 02:26:47,240 - INFO - Patterns retrieved successfully
+2024-07-04 02:26:47,241 - INFO - 127.0.0.1:50725 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:26:47,242 - INFO - Retrieving patterns
+2024-07-04 02:26:48,257 - INFO - Patterns retrieved successfully
+2024-07-04 02:26:48,258 - INFO - 127.0.0.1:50730 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:26:48,259 - INFO - Retrieving models
+2024-07-04 02:26:49,535 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:26:49,535 - INFO - 127.0.0.1:50725 - "GET /models HTTP/1.1" 200
+2024-07-04 02:26:49,536 - INFO - Retrieving models
+2024-07-04 02:26:50,860 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:26:50,860 - INFO - 127.0.0.1:50730 - "GET /models HTTP/1.1" 200
+2024-07-04 02:27:55,943 - INFO - Retrieving patterns
+2024-07-04 02:27:56,923 - INFO - Patterns retrieved successfully
+2024-07-04 02:27:56,924 - INFO - 127.0.0.1:50785 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:30:23,287 - INFO - Starting API server
+2024-07-04 02:30:23,299 - INFO - Started server process [94385]
+2024-07-04 02:30:23,299 - INFO - Waiting for application startup.
+2024-07-04 02:30:23,300 - INFO - Application startup complete.
+2024-07-04 02:30:23,300 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 02:30:25,585 - INFO - 127.0.0.1:50887 - "GET /docs HTTP/1.1" 200
+2024-07-04 02:30:25,725 - INFO - 127.0.0.1:50887 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 02:30:29,230 - INFO - Retrieving models
+2024-07-04 02:30:30,447 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:30:30,447 - INFO - 127.0.0.1:50887 - "GET /models HTTP/1.1" 200
+2024-07-04 02:31:23,973 - INFO - Retrieving patterns
+2024-07-04 02:31:24,989 - INFO - Patterns retrieved successfully
+2024-07-04 02:31:24,990 - INFO - 127.0.0.1:50888 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:32:30,799 - INFO - Starting API server
+2024-07-04 02:32:30,811 - INFO - Started server process [97231]
+2024-07-04 02:32:30,812 - INFO - Waiting for application startup.
+2024-07-04 02:32:30,812 - INFO - Application startup complete.
+2024-07-04 02:32:30,812 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 02:32:33,230 - INFO - 127.0.0.1:51006 - "GET /docs HTTP/1.1" 200
+2024-07-04 02:32:33,360 - INFO - 127.0.0.1:51006 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 02:32:37,398 - INFO - Retrieving models
+2024-07-04 02:32:38,625 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:32:38,626 - INFO - 127.0.0.1:51006 - "GET /models HTTP/1.1" 200
+2024-07-04 02:32:43,663 - INFO - Retrieving patterns
+2024-07-04 02:32:44,692 - INFO - Patterns retrieved successfully
+2024-07-04 02:32:44,693 - INFO - 127.0.0.1:51020 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:32:44,697 - INFO - Retrieving models
+2024-07-04 02:32:45,859 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:32:45,859 - INFO - 127.0.0.1:51020 - "GET /models HTTP/1.1" 200
+2024-07-04 02:35:18,752 - INFO - Retrieving patterns
+2024-07-04 02:35:19,847 - INFO - Patterns retrieved successfully
+2024-07-04 02:35:19,848 - INFO - 127.0.0.1:51116 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:35:19,976 - INFO - Retrieving models
+2024-07-04 02:35:21,166 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:35:21,166 - INFO - 127.0.0.1:51116 - "GET /models HTTP/1.1" 200
+2024-07-04 02:36:03,886 - INFO - 127.0.0.1:52283 - "OPTIONS /fabric HTTP/1.1" 200
+2024-07-04 02:36:03,889 - INFO - Running Fabric command with pattern: improve_notes
+2024-07-04 02:37:43,165 - INFO - Fabric command executed successfully
+2024-07-04 02:37:43,168 - INFO - 127.0.0.1:52283 - "POST /fabric HTTP/1.1" 200
+2024-07-04 02:48:48,443 - INFO - Retrieving patterns
+2024-07-04 02:48:49,525 - INFO - Patterns retrieved successfully
+2024-07-04 02:48:49,526 - INFO - 127.0.0.1:52971 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:48:49,531 - INFO - Retrieving models
+2024-07-04 02:48:50,784 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:48:50,785 - INFO - 127.0.0.1:52971 - "GET /models HTTP/1.1" 200
+2024-07-04 02:49:26,686 - INFO - 127.0.0.1:53000 - "OPTIONS /fabric HTTP/1.1" 200
+2024-07-04 02:49:26,700 - INFO - Running Fabric command with pattern: improve_notes
+2024-07-04 02:49:40,488 - INFO - Fabric command executed successfully
+2024-07-04 02:49:40,488 - INFO - 127.0.0.1:53000 - "POST /fabric HTTP/1.1" 200
+2024-07-04 02:50:20,108 - INFO - Running Fabric command with pattern: improve_notes
+2024-07-04 02:50:28,236 - INFO - Fabric command executed successfully
+2024-07-04 02:50:28,237 - INFO - 127.0.0.1:53035 - "POST /fabric HTTP/1.1" 200
+2024-07-04 02:50:35,702 - INFO - Retrieving patterns
+2024-07-04 02:50:36,732 - INFO - Patterns retrieved successfully
+2024-07-04 02:50:36,733 - INFO - 127.0.0.1:54146 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:50:36,737 - INFO - Retrieving models
+2024-07-04 02:50:37,925 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:50:37,926 - INFO - 127.0.0.1:54146 - "GET /models HTTP/1.1" 200
+2024-07-04 02:51:48,111 - INFO - Running Fabric command with pattern: improve_notes
+2024-07-04 02:51:57,189 - INFO - Fabric command executed successfully
+2024-07-04 02:51:57,190 - INFO - 127.0.0.1:54226 - "POST /fabric HTTP/1.1" 200
+2024-07-04 02:54:44,375 - INFO - Retrieving patterns
+2024-07-04 02:54:45,396 - INFO - Patterns retrieved successfully
+2024-07-04 02:54:45,397 - INFO - 127.0.0.1:54343 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:54:45,400 - INFO - Retrieving models
+2024-07-04 02:54:46,711 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:54:46,711 - INFO - 127.0.0.1:54343 - "GET /models HTTP/1.1" 200
+2024-07-04 02:57:38,847 - INFO - Retrieving patterns
+2024-07-04 02:57:39,922 - INFO - Patterns retrieved successfully
+2024-07-04 02:57:39,923 - INFO - 127.0.0.1:54498 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:57:39,926 - INFO - Retrieving models
+2024-07-04 02:57:41,180 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:57:41,180 - INFO - 127.0.0.1:54498 - "GET /models HTTP/1.1" 200
+2024-07-04 02:59:49,469 - INFO - Retrieving patterns
+2024-07-04 02:59:50,503 - INFO - Patterns retrieved successfully
+2024-07-04 02:59:50,504 - INFO - 127.0.0.1:54591 - "GET /patterns HTTP/1.1" 200
+2024-07-04 02:59:50,508 - INFO - Retrieving models
+2024-07-04 02:59:51,775 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 02:59:51,776 - INFO - 127.0.0.1:54591 - "GET /models HTTP/1.1" 200
+2024-07-04 03:00:25,502 - INFO - Retrieving patterns
+2024-07-04 03:00:26,559 - INFO - Patterns retrieved successfully
+2024-07-04 03:00:26,560 - INFO - 127.0.0.1:54622 - "GET /patterns HTTP/1.1" 200
+2024-07-04 03:00:26,563 - INFO - Retrieving models
+2024-07-04 03:00:27,820 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 03:00:27,820 - INFO - 127.0.0.1:54622 - "GET /models HTTP/1.1" 200
+2024-07-04 03:00:51,504 - INFO - Retrieving patterns
+2024-07-04 03:00:52,595 - INFO - Patterns retrieved successfully
+2024-07-04 03:00:52,596 - INFO - 127.0.0.1:54655 - "GET /patterns HTTP/1.1" 200
+2024-07-04 03:00:52,599 - INFO - Retrieving models
+2024-07-04 03:00:53,818 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 03:00:53,819 - INFO - 127.0.0.1:54655 - "GET /models HTTP/1.1" 200
+2024-07-04 03:03:17,634 - INFO - Retrieving patterns
+2024-07-04 03:03:18,780 - INFO - Patterns retrieved successfully
+2024-07-04 03:03:18,781 - INFO - 127.0.0.1:54764 - "GET /patterns HTTP/1.1" 200
+2024-07-04 03:03:18,785 - INFO - Retrieving models
+2024-07-04 03:03:19,961 - INFO - Models retrieved successfully. Count: 35
+2024-07-04 03:03:19,961 - INFO - 127.0.0.1:54764 - "GET /models HTTP/1.1" 200

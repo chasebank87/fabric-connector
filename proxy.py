@@ -28,6 +28,10 @@ def execute_fabric_command(command):
             # Split the output into lines and create a list of pattern names
             patterns = [{"name": line.strip()} for line in output.split('\n') if line.strip()]
             return patterns
+        if command == "--listmodels":
+            # Split the output into lines and create a list of pattern names
+            models = [{"name": line.strip()} for line in output.split('\n') if line.strip()]
+            return models
         
         return output
     except subprocess.CalledProcessError as e:
