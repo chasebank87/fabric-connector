@@ -10,6 +10,7 @@ import os
 import sys
 import shlex
 import tempfile
+import shutil
 
 # Set up logging
 log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fabric_yt_proxy_api.log')
@@ -36,6 +37,9 @@ class Model(BaseModel):
 class UpdatePatternRequest(BaseModel):
     pattern: str
     content: str
+
+class DeletePatternRequest(BaseModel):
+    pattern: str
 
 class FabricRequest(BaseModel):
     pattern: str
@@ -202,6 +206,37 @@ async def update_pattern(request: UpdatePatternRequest):
     except IOError as e:
         logging.error(f"Error writing pattern file: {e}")
         raise HTTPException(status_code=500, detail=f"Error writing pattern file: {str(e)}")
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")
+
+@app.post("/delete_pattern")
+async def delete_pattern(request: DeletePatternRequest):
+    """
+    Deletes a pattern folder from the Fabric patterns directory
+    """
+    try:
+        pattern_folder_path = os.path.join(PATTERN_PATH, request.pattern)
+        
+        if os.path.exists(pattern_folder_path):
+            if os.path.isdir(pattern_folder_path):
+                shutil.rmtree(pattern_folder_path)
+                logging.info(f"Pattern folder '{request.pattern}' deleted successfully")
+                return {"message": f"Pattern folder '{request.pattern}' deleted successfully"}
+            else:
+                os.remove(pattern_folder_path)
+                logging.info(f"Pattern file '{request.pattern}' deleted successfully")
+                return {"message": f"Pattern file '{request.pattern}' deleted successfully"}
+        else:
+            logging.warning(f"Pattern '{request.pattern}' not found")
+            return {"message": f"Pattern '{request.pattern}' not found"}
+
+    except PermissionError as e:
+        logging.error(f"Permission error deleting pattern: {e}")
+        raise HTTPException(status_code=403, detail=f"Permission error deleting pattern: {str(e)}")
+    except IOError as e:
+        logging.error(f"Error deleting pattern: {e}")
+        raise HTTPException(status_code=500, detail=f"Error deleting pattern: {str(e)}")
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")

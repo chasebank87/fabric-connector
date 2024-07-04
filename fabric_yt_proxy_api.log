@@ -48,3 +48,34 @@
 2024-07-04 14:38:09,835 - INFO - Retrieving models
 2024-07-04 14:38:11,062 - INFO - Models retrieved successfully. Count: 35
 2024-07-04 14:38:11,063 - INFO - 127.0.0.1:51622 - "GET /models HTTP/1.1" 200
+2024-07-04 15:37:06,633 - INFO - Starting API server
+2024-07-04 15:37:06,643 - INFO - Started server process [84113]
+2024-07-04 15:37:06,643 - INFO - Waiting for application startup.
+2024-07-04 15:37:06,643 - INFO - Application startup complete.
+2024-07-04 15:37:06,644 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 15:37:12,319 - INFO - 127.0.0.1:60510 - "GET /docs HTTP/1.1" 200
+2024-07-04 15:37:12,423 - INFO - 127.0.0.1:60510 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 15:37:17,242 - INFO - Retrieving patterns
+2024-07-04 15:37:18,304 - INFO - Patterns retrieved successfully
+2024-07-04 15:37:18,305 - INFO - 127.0.0.1:60510 - "GET /patterns HTTP/1.1" 200
+2024-07-04 15:37:35,882 - ERROR - Error deleting pattern file: [Errno 1] Operation not permitted: '/Users/chase/.config/fabric/patterns/test_pattern'
+2024-07-04 15:37:35,882 - INFO - 127.0.0.1:60511 - "POST /delete_pattern HTTP/1.1" 500
+2024-07-04 15:39:41,468 - INFO - Starting API server
+2024-07-04 15:39:41,478 - INFO - Started server process [87323]
+2024-07-04 15:39:41,478 - INFO - Waiting for application startup.
+2024-07-04 15:39:41,478 - INFO - Application startup complete.
+2024-07-04 15:39:41,479 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 15:39:45,442 - INFO - 127.0.0.1:60639 - "GET /docs HTTP/1.1" 200
+2024-07-04 15:39:45,547 - INFO - 127.0.0.1:60639 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 15:40:03,563 - INFO - Starting API server
+2024-07-04 15:40:03,574 - INFO - Started server process [87825]
+2024-07-04 15:40:03,574 - INFO - Waiting for application startup.
+2024-07-04 15:40:03,574 - INFO - Application startup complete.
+2024-07-04 15:40:03,574 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-04 15:40:05,021 - INFO - 127.0.0.1:60655 - "GET /docs HTTP/1.1" 200
+2024-07-04 15:40:05,069 - INFO - 127.0.0.1:60655 - "GET /openapi.json HTTP/1.1" 200
+2024-07-04 15:40:12,944 - INFO - Pattern folder 'test_pattern' deleted successfully
+2024-07-04 15:40:12,945 - INFO - 127.0.0.1:60656 - "POST /delete_pattern HTTP/1.1" 200
+2024-07-04 15:40:21,086 - INFO - Retrieving patterns
+2024-07-04 15:40:22,139 - INFO - Patterns retrieved successfully
+2024-07-04 15:40:22,140 - INFO - 127.0.0.1:60673 - "GET /patterns HTTP/1.1" 200
