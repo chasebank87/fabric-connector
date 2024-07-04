@@ -11,7 +11,7 @@ main.spec
 # node_modules/
 
 # Optional: Ignore .DS_Store files on macOS
-# .DS_Store
+.DS_Store
 
 # Optional: Ignore IDE-specific files
 # .vscode/
