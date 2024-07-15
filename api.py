@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.security import APIKeyHeader
 from pydantic import BaseModel
 import uvicorn
 import subprocess
@@ -11,13 +12,40 @@ import sys
 import shlex
 import tempfile
 import shutil
+import hashlib
+import uuid
 
 # Set up logging
 log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fabric_yt_proxy_api.log')
 logging.basicConfig(filename=log_file, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-app = FastAPI()
+def get_hardware_uuid():
+    if sys.platform == "darwin":
+        result = subprocess.run(["ioreg", "-rd1", "-c", "IOPlatformExpertDevice"], capture_output=True, text=True)
+        for line in result.stdout.split('\n'):
+            if "IOPlatformUUID" in line:
+                return line.split('=')[1].strip().strip('"')
+    elif sys.platform == "win32":
+        result = subprocess.run(["wmic", "csproduct", "get", "UUID"], capture_output=True, text=True)
+        return result.stdout.split('\n')[1].strip()
+    else:
+        raise Exception("Unsupported platform")
+
+def generate_api_key():
+    hardware_uuid = get_hardware_uuid()
+    key = hashlib.sha256(hardware_uuid.encode()).hexdigest()
+    return key
+
+API_KEY = generate_api_key()
+api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+
+async def get_api_key(api_key: str = Depends(api_key_header)):
+    if api_key != API_KEY:
+        raise HTTPException(status_code=403, detail="Invalid API Key")
+    return api_key
+
+app = FastAPI(dependencies=[Depends(get_api_key)])
 
 # Add CORS middleware
 app.add_middleware(
@@ -65,7 +93,6 @@ elif sys.platform == "win32":
 else:
     print("Unsupported operating system")
     sys.exit(1)
-
 
 @app.post("/fabric")
 async def fabric(request: FabricRequest):
@@ -246,7 +273,7 @@ server = None
 def start_api_server():
     global server
     logging.info("Starting API server")
-    config = uvicorn.Config(app, host="127.0.0.1", port=49152, loop="asyncio", log_config=None)
+    config = uvicorn.Config(app, host="0.0.0.0", port=49152, loop="asyncio", log_config=None)
     server = uvicorn.Server(config)
     try:
         server.run()

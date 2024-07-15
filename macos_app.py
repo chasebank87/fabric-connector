@@ -4,6 +4,7 @@ import os
 import webbrowser
 import sys
 import importlib
+import pyperclip
 from Foundation import NSURL
 from AppKit import NSWorkspace
 from LaunchServices import (
@@ -15,18 +16,14 @@ from LaunchServices import (
     LSSharedFileListItemRemove,
     LSSharedFileListInsertItemURL
 )
-from api import start_api_server, stop_api_server
+from api import start_api_server, stop_api_server, API_KEY
 
 class FabricYTProxyApp(rumps.App):
     def __init__(self):
-        # Initialize the app with a name and icon
         super(FabricYTProxyApp, self).__init__("FabricYTProxy", icon=os.path.join("assets", "icons", "fabric-brain.icns"))
-        # Define the menu items
-        self.menu = ["API Status", "Start API", "Stop API", None, "Open API Docs", "Start at Login"]
+        self.menu = ["API Status", "Start API", "Stop API", None, "Copy API Key", None, "Open API Docs", "Start at Login"]
         self.api_thread = None
-        # Start the API server on initialization
         self.start_api()
-        # Check if the app is set to start at login
         self.login_item_exists = self.check_login_item()
         self.menu["Start at Login"].state = self.login_item_exists
 
@@ -132,6 +129,11 @@ class FabricYTProxyApp(rumps.App):
                 rumps.notification("FabricYTProxy", "Error", "Failed to stop the API server")
         else:
             rumps.notification("FabricYTProxy", "API Not Running", "The API server is not currently active")
+
+    @rumps.clicked("Copy API Key")
+    def copy_api_key(self, _):
+        pyperclip.copy(API_KEY)
+        rumps.notification("FabricYTProxy", "API Key Copied", "The API key has been copied to your clipboard")
 
     @rumps.clicked("Open API Docs")
     def open_api_docs(self, _):

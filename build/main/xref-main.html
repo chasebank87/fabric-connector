@@ -15,7 +15,7 @@
 
 <div class="node">
   <a name="main.py"></a>
-  <a target="code" href="/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/main.py" type="text/plain"><tt>main.py</tt></a>
+  <a target="code" href="/Users/chase/Development/fabric-connector/main.py" type="text/plain"><tt>main.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#_bootlocale">_bootlocale</a>
@@ -149,6 +149,7 @@ imports:
  &#8226;   <a href="#encodings.uu_codec">encodings.uu_codec</a>
  &#8226;   <a href="#encodings.zlib_codec">encodings.zlib_codec</a>
  &#8226;   <a href="#enum">enum</a>
+ &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#heapq">heapq</a>
@@ -160,12 +161,14 @@ imports:
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
  &#8226;   <a href="#pyi_rth_setuptools.py">pyi_rth_setuptools.py</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
@@ -173,8 +176,16 @@ imports:
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
  &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#token">token</a>
+ &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#urllib">urllib</a>
+ &#8226;   <a href="#urllib.error">urllib.error</a>
+ &#8226;   <a href="#urllib.parse">urllib.parse</a>
+ &#8226;   <a href="#urllib.request">urllib.request</a>
+ &#8226;   <a href="#urllib.response">urllib.response</a>
+ &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#uvicorn.lifespan">uvicorn.lifespan</a>
  &#8226;   <a href="#uvicorn.lifespan.on">uvicorn.lifespan.on</a>
  &#8226;   <a href="#uvicorn.logging">uvicorn.logging</a>
@@ -260,8 +271,7 @@ imported by:
   <a target="code" href="/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py" type="text/plain"><tt>pyi_rth_pkgutil.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
-    <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
- &#8226;   <a href="#pathlib">pathlib</a>
+    <a href="#os">os</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#pyimod02_importers">pyimod02_importers</a>
  &#8226;   <a href="#sys">sys</a>
@@ -365,6 +375,39 @@ imported by:
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
     <a href="#setuptools._distutils.file_util">setuptools._distutils.file_util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="'docutils.nodes'"></a>
+  <a target="code" href="" type="text/plain"><tt>'docutils.nodes'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#setuptools._distutils.command.check">setuptools._distutils.command.check</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="'docutils.parsers'"></a>
+  <a target="code" href="" type="text/plain"><tt>'docutils.parsers'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#setuptools._distutils.command.check">setuptools._distutils.command.check</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="'docutils.utils'"></a>
+  <a target="code" href="" type="text/plain"><tt>'docutils.utils'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#setuptools._distutils.command.check">setuptools._distutils.command.check</a>
 
   </div>
 
@@ -805,6 +848,7 @@ imported by:
  &#8226;   <a href="#AppKit._nsapp">AppKit._nsapp</a>
  &#8226;   <a href="#PyObjCTools.AppHelper">PyObjCTools.AppHelper</a>
  &#8226;   <a href="#macos_app">macos_app</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._darwin">pystray._darwin</a>
  &#8226;   <a href="#rumps.rumps">rumps.rumps</a>
  &#8226;   <a href="#rumps.text_field">rumps.text_field</a>
@@ -1686,6 +1730,7 @@ imported by:
  &#8226;   <a href="#PyObjCTools.AppHelper">PyObjCTools.AppHelper</a>
  &#8226;   <a href="#PyObjCTools.Debugging">PyObjCTools.Debugging</a>
  &#8226;   <a href="#macos_app">macos_app</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._darwin">pystray._darwin</a>
  &#8226;   <a href="#rumps._internal">rumps._internal</a>
  &#8226;   <a href="#rumps.notifications">rumps.notifications</a>
@@ -4310,6 +4355,28 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="PyQt4"></a>
+  <a target="code" href="" type="text/plain"><tt>PyQt4</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#pyperclip">pyperclip</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="PyQt5"></a>
+  <a target="code" href="" type="text/plain"><tt>PyQt5</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#pyperclip">pyperclip</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="StringIO"></a>
   <a target="code" href="" type="text/plain"><tt>StringIO</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -4410,7 +4477,7 @@ imported by:
 <div class="node">
   <a name="__main__"></a>
   <a target="code" href="" type="text/plain"><tt>__main__</tt></a>
-<span class="moduletype">ExcludedModule</span>  <div class="import">
+<span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
     <a href="#rumps.rumps">rumps.rumps</a>
 
@@ -5151,23 +5218,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#decimal">decimal</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="_pyi_rth_utils"></a>
-  <a target="code" href="/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/PyInstaller/fake-modules/_pyi_rth_utils/__init__.py" type="text/plain"><tt>_pyi_rth_utils</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
 
   </div>
 
@@ -6550,11 +6600,13 @@ imported by:
 
 <div class="node">
   <a name="api"></a>
-  <a target="code" href="/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/api.py" type="text/plain"><tt>api</tt></a>
+  <a target="code" href="/Users/chase/Development/fabric-connector/api.py" type="text/plain"><tt>api</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#fastapi">fastapi</a>
  &#8226;   <a href="#fastapi.middleware.cors">fastapi.middleware.cors</a>
+ &#8226;   <a href="#fastapi.security">fastapi.security</a>
+ &#8226;   <a href="#hashlib">hashlib</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#proxy">proxy</a>
@@ -6566,6 +6618,7 @@ imports:
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#uuid">uuid</a>
  &#8226;   <a href="#uvicorn">uvicorn</a>
 
   </div>
@@ -8576,6 +8629,7 @@ imported by:
  &#8226;   <a href="#unittest.case">unittest.case</a>
  &#8226;   <a href="#unittest.util">unittest.util</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
+ &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#uvicorn.middleware.wsgi">uvicorn.middleware.wsgi</a>
  &#8226;   <a href="#uvicorn.protocols.http.httptools_impl">uvicorn.protocols.http.httptools_impl</a>
  &#8226;   <a href="#xml.etree.ElementTree">xml.etree.ElementTree</a>
@@ -8909,6 +8963,7 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging._manylinux">pkg_resources._vendor.packaging._manylinux</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging._tokenizer">pkg_resources._vendor.packaging._tokenizer</a>
  &#8226;   <a href="#pkg_resources._vendor.zipp">pkg_resources._vendor.zipp</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._util">pystray._util</a>
  &#8226;   <a href="#pystray._xorg">pystray._xorg</a>
  &#8226;   <a href="#setuptools._distutils._msvccompiler">setuptools._distutils._msvccompiler</a>
@@ -9072,6 +9127,7 @@ imported by:
  &#8226;   <a href="#packaging._manylinux">packaging._manylinux</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging._manylinux">pkg_resources._vendor.packaging._manylinux</a>
  &#8226;   <a href="#pkg_resources._vendor.platformdirs.windows">pkg_resources._vendor.platformdirs.windows</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._util.win32">pystray._util.win32</a>
  &#8226;   <a href="#pystray._win32">pystray._win32</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
@@ -9109,6 +9165,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#click._winconsole">click._winconsole</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._util.win32">pystray._util.win32</a>
  &#8226;   <a href="#pystray._win32">pystray._win32</a>
 
@@ -10139,6 +10196,17 @@ imports:
 imported by:
     <a href="#distutils.dist">distutils.dist</a>
  &#8226;   <a href="#setuptools._distutils.dist">setuptools._distutils.dist</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="docutils"></a>
+  <a target="code" href="" type="text/plain"><tt>docutils</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#setuptools._distutils.command.check">setuptools._distutils.command.check</a>
 
   </div>
 
@@ -14088,7 +14156,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#fastapi.security.api_key">fastapi.security.api_key</a>
+    <a href="#api">api</a>
+ &#8226;   <a href="#fastapi.security.api_key">fastapi.security.api_key</a>
  &#8226;   <a href="#fastapi.security.base">fastapi.security.base</a>
  &#8226;   <a href="#fastapi.security.http">fastapi.security.http</a>
  &#8226;   <a href="#fastapi.security.oauth2">fastapi.security.oauth2</a>
@@ -14324,6 +14393,7 @@ imported by:
     <a href="#bdb">bdb</a>
  &#8226;   <a href="#distutils.filelist">distutils.filelist</a>
  &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#setuptools._distutils.filelist">setuptools._distutils.filelist</a>
  &#8226;   <a href="#setuptools.discovery">setuptools.discovery</a>
@@ -14696,6 +14766,17 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="gtk"></a>
+  <a target="code" href="" type="text/plain"><tt>gtk</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#pyperclip">pyperclip</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="gunicorn"></a>
   <a target="code" href="" type="text/plain"><tt>gunicorn</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -15002,7 +15083,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#hmac">hmac</a>
+    <a href="#api">api</a>
+ &#8226;   <a href="#hmac">hmac</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#setuptools._distutils.command.upload">setuptools._distutils.command.upload</a>
  &#8226;   <a href="#starlette._compat">starlette._compat</a>
@@ -16573,7 +16655,7 @@ imported by:
 
 <div class="node">
   <a name="macos_app"></a>
-  <a target="code" href="/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/macos_app.py" type="text/plain"><tt>macos_app</tt></a>
+  <a target="code" href="/Users/chase/Development/fabric-connector/macos_app.py" type="text/plain"><tt>macos_app</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#AppKit">AppKit</a>
@@ -16591,6 +16673,7 @@ imports:
  &#8226;   <a href="#api">api</a>
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#rumps">rumps</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#threading">threading</a>
@@ -18606,7 +18689,6 @@ imported by:
  &#8226;   <a href="#_bootsubprocess">_bootsubprocess</a>
  &#8226;   <a href="#_distutils_hack">_distutils_hack</a>
  &#8226;   <a href="#_osx_support">_osx_support</a>
- &#8226;   <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
  &#8226;   <a href="#_sitebuiltins">_sitebuiltins</a>
  &#8226;   <a href="#anyio._backends._asyncio">anyio._backends._asyncio</a>
  &#8226;   <a href="#anyio._backends._trio">anyio._backends._trio</a>
@@ -18736,7 +18818,9 @@ imported by:
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
+ &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
  &#8226;   <a href="#pyi_rth_setuptools.py">pyi_rth_setuptools.py</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray">pystray</a>
  &#8226;   <a href="#pystray._util">pystray._util</a>
  &#8226;   <a href="#pystray._util.gtk">pystray._util.gtk</a>
@@ -19261,6 +19345,7 @@ imported by:
  &#8226;   <a href="#importlib.resources">importlib.resources</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
  &#8226;   <a href="#importlib_metadata.compat.py311">importlib_metadata.compat.py311</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#objc._bridges">objc._bridges</a>
  &#8226;   <a href="#pkg_resources._vendor.importlib_resources._common">pkg_resources._vendor.importlib_resources._common</a>
  &#8226;   <a href="#pkg_resources._vendor.importlib_resources._compat">pkg_resources._vendor.importlib_resources._compat</a>
@@ -19273,7 +19358,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.zipp">pkg_resources._vendor.zipp</a>
  &#8226;   <a href="#pydantic">pydantic</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
- &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
  &#8226;   <a href="#setuptools._distutils.command.config">setuptools._distutils.command.config</a>
  &#8226;   <a href="#setuptools._distutils.cygwinccompiler">setuptools._distutils.cygwinccompiler</a>
  &#8226;   <a href="#setuptools._distutils.dist">setuptools._distutils.dist</a>
@@ -20663,6 +20747,7 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging.markers">pkg_resources._vendor.packaging.markers</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging.tags">pkg_resources._vendor.packaging.tags</a>
  &#8226;   <a href="#pydoc">pydoc</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#setuptools._distutils.py39compat">setuptools._distutils.py39compat</a>
  &#8226;   <a href="#setuptools._vendor.importlib_metadata._compat">setuptools._vendor.importlib_metadata._compat</a>
  &#8226;   <a href="#setuptools._vendor.packaging.markers">setuptools._vendor.packaging.markers</a>
@@ -20829,7 +20914,7 @@ imported by:
 
 <div class="node">
   <a name="proxy"></a>
-  <a target="code" href="/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/proxy.py" type="text/plain"><tt>proxy</tt></a>
+  <a target="code" href="/Users/chase/Development/fabric-connector/proxy.py" type="text/plain"><tt>proxy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#asyncio">asyncio</a>
@@ -21594,6 +21679,39 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="pyperclip"></a>
+  <a target="code" href="/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/pyperclip/__init__.py" type="text/plain"><tt>pyperclip</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#AppKit">AppKit</a>
+ &#8226;   <a href="#Foundation">Foundation</a>
+ &#8226;   <a href="#PyQt4">PyQt4</a>
+ &#8226;   <a href="#PyQt5">PyQt5</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
+ &#8226;   <a href="#gtk">gtk</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#platform">platform</a>
+ &#8226;   <a href="#qtpy">qtpy</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#macos_app">macos_app</a>
+ &#8226;   <a href="#main.py">main.py</a>
+ &#8226;   <a href="#windows_app">windows_app</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="pystray"></a>
   <a target="code" href="/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/pystray/__init__.py" type="text/plain"><tt>pystray</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
@@ -21907,6 +22025,17 @@ imports:
   <div class="import">
 imported by:
     <a href="#pystray">pystray</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="qtpy"></a>
+  <a target="code" href="" type="text/plain"><tt>qtpy</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#pyperclip">pyperclip</a>
 
   </div>
 
@@ -23486,7 +23615,11 @@ imported by:
   <a target="code" href="/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/setuptools/_distutils/command/check.py" type="text/plain"><tt>setuptools._distutils.command.check</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#contextlib">contextlib</a>
+    <a href="#'docutils.nodes'">'docutils.nodes'</a>
+ &#8226;   <a href="#'docutils.parsers'">'docutils.parsers'</a>
+ &#8226;   <a href="#'docutils.utils'">'docutils.utils'</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#docutils">docutils</a>
  &#8226;   <a href="#setuptools._distutils.command">setuptools._distutils.command</a>
  &#8226;   <a href="#setuptools._distutils.core">setuptools._distutils.core</a>
  &#8226;   <a href="#setuptools._distutils.errors">setuptools._distutils.errors</a>
@@ -26970,6 +27103,7 @@ imported by:
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#pkg_resources._vendor.backports.tarfile">pkg_resources._vendor.backports.tarfile</a>
  &#8226;   <a href="#pkg_resources._vendor.jaraco.context">pkg_resources._vendor.jaraco.context</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._util.notify_dbus">pystray._util.notify_dbus</a>
  &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
@@ -28194,6 +28328,7 @@ imported by:
  &#8226;   <a href="#proxy">proxy</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray._darwin">pystray._darwin</a>
  &#8226;   <a href="#setuptools._distutils._msvccompiler">setuptools._distutils._msvccompiler</a>
  &#8226;   <a href="#setuptools._distutils.command._framework_compat">setuptools._distutils.command._framework_compat</a>
@@ -28260,7 +28395,6 @@ imported by:
  &#8226;   <a href="#_distutils_hack">_distutils_hack</a>
  &#8226;   <a href="#_osx_support">_osx_support</a>
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
- &#8226;   <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
  &#8226;   <a href="#_sitebuiltins">_sitebuiltins</a>
  &#8226;   <a href="#anyio._backends._asyncio">anyio._backends._asyncio</a>
  &#8226;   <a href="#anyio._backends._trio">anyio._backends._trio</a>
@@ -28427,6 +28561,7 @@ imported by:
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray">pystray</a>
  &#8226;   <a href="#pystray._xorg">pystray._xorg</a>
  &#8226;   <a href="#quopri">quopri</a>
@@ -28870,6 +29005,7 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.more_itertools.more">pkg_resources._vendor.more_itertools.more</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#pydoc">pydoc</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#queue">queue</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
@@ -28883,6 +29019,7 @@ imported by:
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#unittest.runner">unittest.runner</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
+ &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#uuid">uuid</a>
  &#8226;   <a href="#uvicorn.server">uvicorn.server</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
@@ -28899,6 +29036,7 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
     <a href="#inspect">inspect</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#tokenize">tokenize</a>
 
   </div>
@@ -28926,6 +29064,7 @@ imported by:
     <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#linecache">linecache</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#pdb">pdb</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#setuptools._distutils.command.build_scripts">setuptools._distutils.command.build_scripts</a>
@@ -29809,10 +29948,12 @@ imported by:
 <span class="moduletype">Package</span>  <div class="import">
 imported by:
     <a href="#email._header_value_parser">email._header_value_parser</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#urllib.error">urllib.error</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib.response">urllib.response</a>
+ &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#uvicorn.protocols.http.httptools_impl">uvicorn.protocols.http.httptools_impl</a>
 
   </div>
@@ -29830,7 +29971,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#urllib.request">urllib.request</a>
+    <a href="#main.py">main.py</a>
+ &#8226;   <a href="#urllib.request">urllib.request</a>
 
   </div>
 
@@ -29859,6 +30001,7 @@ imported by:
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#logging.handlers">logging.handlers</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#nturl2path">nturl2path</a>
  &#8226;   <a href="#pathlib">pathlib</a>
@@ -29870,6 +30013,7 @@ imported by:
  &#8226;   <a href="#starlette.formparsers">starlette.formparsers</a>
  &#8226;   <a href="#starlette.responses">starlette.responses</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
+ &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#uvicorn.protocols.http.h11_impl">uvicorn.protocols.http.h11_impl</a>
  &#8226;   <a href="#uvicorn.protocols.utils">uvicorn.protocols.utils</a>
  &#8226;   <a href="#uvicorn.protocols.websockets.websockets_impl">uvicorn.protocols.websockets.websockets_impl</a>
@@ -29923,11 +30067,13 @@ imports:
   <div class="import">
 imported by:
     <a href="#http.cookiejar">http.cookiejar</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#pkg_resources._vendor.jaraco.context">pkg_resources._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools._distutils.command.register">setuptools._distutils.command.register</a>
  &#8226;   <a href="#setuptools._distutils.command.upload">setuptools._distutils.command.upload</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.formats">setuptools.config._validate_pyproject.formats</a>
+ &#8226;   <a href="#urllib.robotparser">urllib.robotparser</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
 
   </div>
@@ -29945,8 +30091,29 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#urllib.error">urllib.error</a>
+    <a href="#main.py">main.py</a>
+ &#8226;   <a href="#urllib.error">urllib.error</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="urllib.robotparser"></a>
+  <a target="code" href="/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/urllib/robotparser.py" type="text/plain"><tt>urllib.robotparser</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#collections">collections</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#urllib">urllib</a>
+ &#8226;   <a href="#urllib.parse">urllib.parse</a>
+ &#8226;   <a href="#urllib.request">urllib.request</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#main.py">main.py</a>
 
   </div>
 
@@ -30003,7 +30170,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#click.types">click.types</a>
+    <a href="#api">api</a>
+ &#8226;   <a href="#click.types">click.types</a>
  &#8226;   <a href="#pydantic">pydantic</a>
  &#8226;   <a href="#starlette.convertors">starlette.convertors</a>
 
@@ -31146,6 +31314,7 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.typing_extensions">pkg_resources._vendor.typing_extensions</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#pydoc">pydoc</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#runpy">runpy</a>
  &#8226;   <a href="#setuptools._distutils._msvccompiler">setuptools._distutils._msvccompiler</a>
@@ -31362,7 +31531,7 @@ imported by:
 
 <div class="node">
   <a name="windows_app"></a>
-  <a target="code" href="/Users/chase/Scripts/claude-engineer/fabric_yt_proxy/windows_app.py" type="text/plain"><tt>windows_app</tt></a>
+  <a target="code" href="/Users/chase/Development/fabric-connector/windows_app.py" type="text/plain"><tt>windows_app</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PIL">PIL</a>
@@ -31371,6 +31540,7 @@ imports:
  &#8226;   <a href="#builtins">builtins</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#pystray">pystray</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#threading">threading</a>

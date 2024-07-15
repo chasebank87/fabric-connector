@@ -79,3 +79,142 @@
 2024-07-04 15:40:21,086 - INFO - Retrieving patterns
 2024-07-04 15:40:22,139 - INFO - Patterns retrieved successfully
 2024-07-04 15:40:22,140 - INFO - 127.0.0.1:60673 - "GET /patterns HTTP/1.1" 200
+2024-07-15 13:43:59,468 - INFO - Starting API server
+2024-07-15 13:44:30,778 - INFO - Starting API server
+2024-07-15 13:44:30,789 - INFO - Started server process [78879]
+2024-07-15 13:44:30,789 - INFO - Waiting for application startup.
+2024-07-15 13:44:30,789 - INFO - Application startup complete.
+2024-07-15 13:44:30,789 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-15 13:44:47,878 - INFO - 127.0.0.1:55156 - "GET /docs HTTP/1.1" 200
+2024-07-15 13:44:48,056 - INFO - 127.0.0.1:55156 - "GET /openapi.json HTTP/1.1" 200
+2024-07-15 13:45:05,048 - INFO - 127.0.0.1:55157 - "GET /models HTTP/1.1" 403
+2024-07-15 13:45:30,397 - INFO - Starting API server
+2024-07-15 13:45:30,407 - INFO - Started server process [79914]
+2024-07-15 13:45:30,407 - INFO - Waiting for application startup.
+2024-07-15 13:45:30,407 - INFO - Application startup complete.
+2024-07-15 13:45:30,408 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-15 13:45:39,525 - INFO - 127.0.0.1:55406 - "GET /docs HTTP/1.1" 200
+2024-07-15 13:45:39,663 - INFO - 127.0.0.1:55406 - "GET /openapi.json HTTP/1.1" 200
+2024-07-15 13:45:43,972 - INFO - 127.0.0.1:55406 - "GET /api_key HTTP/1.1" 403
+2024-07-15 13:55:12,646 - INFO - Starting API server
+2024-07-15 13:55:12,664 - INFO - Started server process [89941]
+2024-07-15 13:55:12,664 - INFO - Waiting for application startup.
+2024-07-15 13:55:12,664 - INFO - Application startup complete.
+2024-07-15 13:55:12,664 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-15 13:55:26,550 - INFO - 127.0.0.1:58273 - "GET /docs HTTP/1.1" 200
+2024-07-15 13:55:26,621 - INFO - 127.0.0.1:58273 - "GET /openapi.json HTTP/1.1" 200
+2024-07-15 13:55:35,531 - INFO - Retrieving models
+2024-07-15 13:55:37,771 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 13:55:37,771 - INFO - 127.0.0.1:58274 - "GET /models HTTP/1.1" 200
+2024-07-15 13:56:00,816 - INFO - Starting API server
+2024-07-15 13:56:00,833 - INFO - Started server process [90765]
+2024-07-15 13:56:00,834 - INFO - Waiting for application startup.
+2024-07-15 13:56:00,834 - INFO - Application startup complete.
+2024-07-15 13:56:00,834 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-15 13:56:09,802 - INFO - 127.0.0.1:58477 - "GET /docs HTTP/1.1" 200
+2024-07-15 13:56:09,924 - INFO - 127.0.0.1:58477 - "GET /openapi.json HTTP/1.1" 200
+2024-07-15 13:56:17,401 - INFO - 127.0.0.1:58478 - "GET /models HTTP/1.1" 403
+2024-07-15 13:56:24,940 - INFO - Retrieving models
+2024-07-15 13:56:26,212 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 13:56:26,213 - INFO - 127.0.0.1:58551 - "GET /models HTTP/1.1" 200
+2024-07-15 13:59:24,117 - INFO - Starting API server
+2024-07-15 13:59:24,136 - INFO - Started server process [94056]
+2024-07-15 13:59:24,136 - INFO - Waiting for application startup.
+2024-07-15 13:59:24,136 - INFO - Application startup complete.
+2024-07-15 13:59:24,136 - INFO - Uvicorn running on http://127.0.0.1:49152 (Press CTRL+C to quit)
+2024-07-15 13:59:37,924 - INFO - 127.0.0.1:59464 - "GET /docs HTTP/1.1" 200
+2024-07-15 13:59:38,066 - INFO - 127.0.0.1:59464 - "GET /openapi.json HTTP/1.1" 200
+2024-07-15 13:59:48,638 - INFO - 127.0.0.1:59465 - "GET /models HTTP/1.1" 403
+2024-07-15 13:59:59,201 - INFO - Retrieving models
+2024-07-15 14:00:00,580 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:00:00,580 - INFO - 127.0.0.1:59566 - "GET /models HTTP/1.1" 200
+2024-07-15 14:04:10,013 - INFO - Starting API server
+2024-07-15 14:04:10,032 - INFO - Started server process [98971]
+2024-07-15 14:04:10,032 - INFO - Waiting for application startup.
+2024-07-15 14:04:10,032 - INFO - Application startup complete.
+2024-07-15 14:04:10,032 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-07-15 14:04:11,497 - INFO - 10.0.78.61:60829 - "GET / HTTP/1.1" 404
+2024-07-15 14:04:11,621 - INFO - 10.0.78.61:60829 - "GET /favicon.ico HTTP/1.1" 404
+2024-07-15 14:04:41,644 - INFO - 10.0.78.206:10257 - "GET / HTTP/1.1" 404
+2024-07-15 14:04:41,795 - INFO - 10.0.78.206:32117 - "GET /favicon.ico HTTP/1.1" 404
+2024-07-15 14:14:07,002 - INFO - 10.0.78.206:7104 - "GET /docs HTTP/1.1" 200
+2024-07-15 14:14:07,312 - INFO - 10.0.78.206:10824 - "GET /openapi.json HTTP/1.1" 200
+2024-07-15 14:27:45,812 - INFO - 127.0.0.1:51333 - "GET /patterns HTTP/1.1" 403
+2024-07-15 14:27:45,835 - INFO - 127.0.0.1:51333 - "GET /models HTTP/1.1" 403
+2024-07-15 14:28:56,256 - INFO - 127.0.0.1:51655 - "GET /patterns HTTP/1.1" 403
+2024-07-15 14:28:56,327 - INFO - 127.0.0.1:51655 - "GET /models HTTP/1.1" 403
+2024-07-15 14:29:24,404 - INFO - 10.0.78.206:47155 - "OPTIONS /test_api_key HTTP/1.1" 200
+2024-07-15 14:29:24,480 - INFO - 10.0.78.206:2911 - "POST /test_api_key HTTP/1.1" 404
+2024-07-15 14:30:37,517 - INFO - 127.0.0.1:52163 - "GET /patterns HTTP/1.1" 403
+2024-07-15 14:30:37,522 - INFO - 127.0.0.1:52163 - "GET /models HTTP/1.1" 403
+2024-07-15 14:30:48,209 - INFO - 127.0.0.1:52219 - "OPTIONS //models HTTP/1.1" 200
+2024-07-15 14:30:48,212 - INFO - 127.0.0.1:52219 - "GET //models HTTP/1.1" 404
+2024-07-15 14:31:36,290 - INFO - 10.0.78.206:30093 - "OPTIONS /models HTTP/1.1" 200
+2024-07-15 14:31:36,351 - INFO - Retrieving models
+2024-07-15 14:31:37,854 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:31:37,855 - INFO - 10.0.78.206:65035 - "GET /models HTTP/1.1" 200
+2024-07-15 14:33:41,909 - INFO - Retrieving models
+2024-07-15 14:33:43,257 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:33:43,258 - INFO - 10.0.78.206:46090 - "GET /models HTTP/1.1" 200
+2024-07-15 14:34:13,077 - INFO - Retrieving models
+2024-07-15 14:34:15,672 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:34:15,672 - INFO - 10.0.78.206:55808 - "GET /models HTTP/1.1" 200
+2024-07-15 14:34:15,889 - INFO - Retrieving models
+2024-07-15 14:34:17,199 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:34:17,200 - INFO - 10.0.78.206:4977 - "GET /models HTTP/1.1" 200
+2024-07-15 14:34:36,184 - INFO - 127.0.0.1:53312 - "GET /patterns HTTP/1.1" 403
+2024-07-15 14:34:36,191 - INFO - 127.0.0.1:53312 - "GET /models HTTP/1.1" 403
+2024-07-15 14:37:05,821 - INFO - 10.0.78.206:12542 - "OPTIONS //models HTTP/1.1" 200
+2024-07-15 14:37:05,886 - INFO - 10.0.78.206:27258 - "GET //models HTTP/1.1" 404
+2024-07-15 14:37:17,867 - INFO - Retrieving models
+2024-07-15 14:37:19,242 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:37:19,242 - INFO - 10.0.78.206:25499 - "GET /models HTTP/1.1" 200
+2024-07-15 14:39:30,625 - INFO - Retrieving models
+2024-07-15 14:39:31,952 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 14:39:31,953 - INFO - 10.0.78.206:53255 - "GET /models HTTP/1.1" 200
+2024-07-15 15:00:11,282 - INFO - 10.0.78.206:56927 - "OPTIONS /models HTTP/1.1" 200
+2024-07-15 15:00:11,350 - INFO - Retrieving models
+2024-07-15 15:00:12,837 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 15:00:12,838 - INFO - 10.0.78.206:42618 - "GET /models HTTP/1.1" 200
+2024-07-15 15:00:16,806 - INFO - 10.0.78.206:39870 - "GET /patterns HTTP/1.1" 403
+2024-07-15 15:00:16,863 - INFO - 10.0.78.206:49129 - "GET /models HTTP/1.1" 403
+2024-07-15 15:05:24,621 - INFO - Retrieving models
+2024-07-15 15:05:25,961 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 15:05:25,962 - INFO - 10.0.78.206:25669 - "GET /models HTTP/1.1" 200
+2024-07-15 15:05:29,757 - INFO - 10.0.78.206:19301 - "OPTIONS /patterns HTTP/1.1" 200
+2024-07-15 15:05:29,827 - INFO - Retrieving patterns
+2024-07-15 15:05:30,864 - INFO - Patterns retrieved successfully
+2024-07-15 15:05:30,865 - INFO - 10.0.78.206:2924 - "GET /patterns HTTP/1.1" 200
+2024-07-15 15:05:30,934 - INFO - Retrieving models
+2024-07-15 15:05:32,284 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 15:05:32,285 - INFO - 10.0.78.206:62493 - "GET /models HTTP/1.1" 200
+2024-07-15 15:17:40,955 - INFO - 10.0.78.206:63015 - "OPTIONS /models HTTP/1.1" 200
+2024-07-15 15:17:41,020 - INFO - Retrieving models
+2024-07-15 15:17:42,448 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 15:17:42,448 - INFO - 10.0.78.206:57400 - "GET /models HTTP/1.1" 200
+2024-07-15 15:17:56,373 - INFO - 10.0.78.206:32949 - "OPTIONS /patterns HTTP/1.1" 200
+2024-07-15 15:17:56,558 - INFO - Retrieving patterns
+2024-07-15 15:17:57,556 - INFO - Patterns retrieved successfully
+2024-07-15 15:17:57,557 - INFO - 10.0.78.206:8428 - "GET /patterns HTTP/1.1" 200
+2024-07-15 15:17:57,816 - INFO - Retrieving models
+2024-07-15 15:17:59,106 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 15:17:59,107 - INFO - 10.0.78.206:45916 - "GET /models HTTP/1.1" 200
+2024-07-15 15:18:13,942 - INFO - 10.0.78.206:46008 - "OPTIONS /fabric HTTP/1.1" 200
+2024-07-15 15:18:14,007 - INFO - Running Fabric command with pattern: search_engine
+2024-07-15 15:18:21,710 - INFO - Fabric command executed successfully
+2024-07-15 15:18:21,710 - INFO - 10.0.78.206:12207 - "POST /fabric HTTP/1.1" 200
+2024-07-15 15:19:21,999 - INFO - 10.0.78.206:24931 - "OPTIONS /patterns HTTP/1.1" 200
+2024-07-15 15:19:22,053 - INFO - Retrieving patterns
+2024-07-15 15:19:23,177 - INFO - Patterns retrieved successfully
+2024-07-15 15:19:23,178 - INFO - 10.0.78.206:63982 - "GET /patterns HTTP/1.1" 200
+2024-07-15 15:19:23,232 - INFO - 10.0.78.206:39489 - "OPTIONS /models HTTP/1.1" 200
+2024-07-15 15:19:23,294 - INFO - Retrieving models
+2024-07-15 15:19:24,493 - INFO - Models retrieved successfully. Count: 37
+2024-07-15 15:19:24,494 - INFO - 10.0.78.206:48313 - "GET /models HTTP/1.1" 200
+2024-07-15 15:29:19,172 - INFO - Starting API server
+2024-07-15 15:29:19,193 - INFO - Started server process [88790]
+2024-07-15 15:29:19,193 - INFO - Waiting for application startup.
+2024-07-15 15:29:19,193 - INFO - Application startup complete.
+2024-07-15 15:29:19,193 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-07-15 15:29:26,178 - INFO - 10.0.78.206:12050 - "GET /docs HTTP/1.1" 200
+2024-07-15 15:29:26,338 - INFO - 10.0.78.206:62440 - "GET /openapi.json HTTP/1.1" 200

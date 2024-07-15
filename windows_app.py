@@ -6,9 +6,10 @@ import webbrowser
 import logging
 import sys
 from PIL import Image
-from api import start_api_server, stop_api_server
+from api import start_api_server, stop_api_server, API_KEY
 import winreg
 import sys
+import pyperclip
 
 
 # Set up logging
@@ -45,12 +46,39 @@ class FabricYTProxyApp:
             pystray.MenuItem("Start API", self.manual_start_api),
             pystray.MenuItem("Stop API", self.stop_api),
             pystray.Menu.SEPARATOR,
+            pystray.MenuItem("Copy API Key", self.copy_api_key),
+            pystray.Menu.SEPARATOR,
             pystray.MenuItem("Open API Docs", self.open_api_docs),
             pystray.MenuItem("Start at Login", self.toggle_start_at_login, checked=lambda item: self.is_start_at_login_enabled()),
             pystray.MenuItem("Exit", self.exit_app)
         )
         self.icon.icon = image
         self.icon.menu = menu
+
+    def copy_api_key(self):
+        try:
+            pyperclip.copy(API_KEY)
+            logging.info("API key copied to clipboard")
+            self.icon.notify("API Key Copied", "The API key has been copied to your clipboard")
+        except Exception as e:
+            logging.error(f"Failed to copy API key: {e}")
+            self.icon.notify("Error", "Failed to copy API key")
+
+    def update_menu_status(self, is_running):
+        logging.info(f"Updating menu status: API {'running' if is_running else 'stopped'}")
+        def create_menu(is_running):
+            return pystray.Menu(
+                pystray.MenuItem(f"API Status: {'Running' if is_running else 'Stopped'}", self.check_api_status),
+                pystray.MenuItem("Start API", self.manual_start_api, enabled=not is_running),
+                pystray.MenuItem("Stop API", self.stop_api, enabled=is_running),
+                pystray.Menu.SEPARATOR,
+                pystray.MenuItem("Copy API Key", self.copy_api_key),
+                pystray.Menu.SEPARATOR,
+                pystray.MenuItem("Open API Docs", self.open_api_docs),
+                pystray.MenuItem("Start at Login", self.toggle_start_at_login, checked=self.is_start_at_login_enabled()),
+                pystray.MenuItem("Exit", self.exit_app)
+            )
+        self.icon.menu = create_menu(is_running)
 
     def start_api(self):
         logging.info("Attempting to start API")
