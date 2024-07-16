@@ -1,3 +1,0 @@
-([('Fabric Connector',
-   '/Users/chase/Development/fabric-connector/dist/Fabric Connector',
-   'EXECUTABLE')],)
