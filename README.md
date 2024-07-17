@@ -15,6 +15,10 @@ FabricYTProxy is a Python-based application that integrates with Fabric and YT b
 
 ## Installation
 
+A MacOS and Windows executable is provided for easy installation. Click the latest release.
+
+**When running on windows, fabric is ran using WSL, we need a WSL1 or WSL2 distribution running and set as default, fabric installed, fabric configures, and the user must be the same as your windows user.**
+
 ### Prerequisites
 
 Ensure you have Python 3.7+ installed on your system. You will also need to have the Fabric and YT binaries installed and accessible in your system's PATH.
@@ -56,16 +60,7 @@ The project relies on several Python packages, which are listed in `requirements
 
 ## Configuration
 
-### Environment Variables
-
-You can configure the paths to the Fabric and YT binaries by setting the following environment variables:
-
-```sh
-export FABRIC_PATH="/path/to/fabric"
-export YT_PATH="/path/to/yt"
-```
-
-Alternatively, you can directly modify the paths in the code.
+When using windows
 
 ## Usage
 
