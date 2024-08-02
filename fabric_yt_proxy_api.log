@@ -218,3 +218,192 @@
 2024-07-15 15:29:19,193 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
 2024-07-15 15:29:26,178 - INFO - 10.0.78.206:12050 - "GET /docs HTTP/1.1" 200
 2024-07-15 15:29:26,338 - INFO - 10.0.78.206:62440 - "GET /openapi.json HTTP/1.1" 200
+2024-07-20 21:54:29,944 - INFO - Starting API server
+2024-07-20 21:54:29,970 - INFO - Started server process [9581]
+2024-07-20 21:54:29,970 - INFO - Waiting for application startup.
+2024-07-20 21:54:29,970 - INFO - Application startup complete.
+2024-07-20 21:54:29,970 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-07-20 21:54:46,829 - INFO - 127.0.0.1:61602 - "GET /docs HTTP/1.1" 200
+2024-07-20 21:54:47,010 - INFO - 127.0.0.1:61602 - "GET /openapi.json HTTP/1.1" 200
+2024-07-20 21:55:53,255 - INFO - 127.0.0.1:61664 - "POST /fabric HTTP/1.1" 422
+2024-07-20 21:56:19,355 - INFO - Running Fabric command with patterns: ['extract_wisdom', 'summarize']
+2024-07-20 21:56:31,113 - INFO - Fabric command executed successfully
+2024-07-20 21:56:31,115 - INFO - 127.0.0.1:61690 - "POST /fabric HTTP/1.1" 200
+2024-07-20 21:57:16,291 - INFO - 10.0.78.206:14629 - "OPTIONS /patterns HTTP/1.1" 200
+2024-07-20 21:57:16,363 - INFO - Retrieving patterns
+2024-07-20 21:57:17,731 - INFO - Patterns retrieved successfully
+2024-07-20 21:57:17,732 - INFO - 10.0.78.206:5836 - "GET /patterns HTTP/1.1" 200
+2024-07-20 21:57:17,790 - INFO - 10.0.78.206:19529 - "OPTIONS /models HTTP/1.1" 200
+2024-07-20 21:57:17,836 - INFO - Retrieving models
+2024-07-20 21:57:19,084 - INFO - Models retrieved successfully. Count: 40
+2024-07-20 21:57:19,085 - INFO - 10.0.78.206:10015 - "GET /models HTTP/1.1" 200
+2024-07-20 21:57:40,257 - INFO - 10.0.78.206:41564 - "OPTIONS /fabric HTTP/1.1" 200
+2024-07-20 21:57:40,314 - INFO - 10.0.78.206:56688 - "POST /fabric HTTP/1.1" 422
+2024-08-02 12:13:32,416 - INFO - Starting API server
+2024-08-02 12:13:32,437 - INFO - Started server process [34824]
+2024-08-02 12:13:32,437 - INFO - Waiting for application startup.
+2024-08-02 12:13:32,437 - INFO - Application startup complete.
+2024-08-02 12:13:32,437 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-02 12:13:40,960 - INFO - 127.0.0.1:54506 - "GET /docs HTTP/1.1" 200
+2024-08-02 12:13:41,146 - INFO - 127.0.0.1:54506 - "GET /openapi.json HTTP/1.1" 200
+2024-08-02 12:17:33,272 - INFO - 127.0.0.1:54710 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 12:17:33,275 - INFO - Retrieving patterns
+2024-08-02 12:17:34,451 - INFO - Patterns retrieved successfully
+2024-08-02 12:17:34,452 - INFO - 127.0.0.1:54710 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:17:34,516 - INFO - 127.0.0.1:54710 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 12:17:34,518 - INFO - Retrieving models
+2024-08-02 12:17:35,865 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:17:35,866 - INFO - 127.0.0.1:54710 - "GET /models HTTP/1.1" 200
+2024-08-02 12:19:43,305 - INFO - Retrieving patterns
+2024-08-02 12:19:44,525 - INFO - Patterns retrieved successfully
+2024-08-02 12:19:44,526 - INFO - 127.0.0.1:54822 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:19:44,531 - INFO - Retrieving models
+2024-08-02 12:19:45,747 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:19:45,748 - INFO - 127.0.0.1:54822 - "GET /models HTTP/1.1" 200
+2024-08-02 12:20:08,946 - INFO - 127.0.0.1:54848 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-02 12:20:08,950 - INFO - 127.0.0.1:54848 - "POST /fabric HTTP/1.1" 422
+2024-08-02 12:20:24,204 - INFO - 127.0.0.1:54866 - "POST /fabric HTTP/1.1" 422
+2024-08-02 12:21:49,602 - INFO - Running Fabric command with patterns: ['improve_notes', 'add_comments']
+2024-08-02 12:22:01,284 - INFO - Fabric command executed successfully
+2024-08-02 12:22:01,285 - INFO - 127.0.0.1:54919 - "POST /fabric HTTP/1.1" 200
+2024-08-02 12:26:26,416 - INFO - 127.0.0.1:55144 - "POST /fabric HTTP/1.1" 422
+2024-08-02 12:32:50,664 - INFO - 127.0.0.1:55409 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 12:32:50,666 - INFO - Retrieving patterns
+2024-08-02 12:32:51,811 - INFO - Patterns retrieved successfully
+2024-08-02 12:32:51,812 - INFO - 127.0.0.1:55409 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:32:51,865 - INFO - 127.0.0.1:55409 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 12:32:51,867 - INFO - Retrieving models
+2024-08-02 12:32:53,140 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:32:53,140 - INFO - 127.0.0.1:55409 - "GET /models HTTP/1.1" 200
+2024-08-02 12:33:00,322 - INFO - 127.0.0.1:55422 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-02 12:33:00,331 - INFO - Running Fabric command with patterns: ['improve_notes', 'add_comments']
+2024-08-02 12:33:21,922 - INFO - Fabric command executed successfully
+2024-08-02 12:33:21,922 - INFO - 127.0.0.1:55422 - "POST /fabric HTTP/1.1" 200
+2024-08-02 12:34:41,347 - INFO - 127.0.0.1:55499 - "OPTIONS /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:41,351 - INFO - Pattern 'add_comments' updated successfully
+2024-08-02 12:34:41,351 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:41,357 - INFO - Retrieving patterns
+2024-08-02 12:34:42,407 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:42,408 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:42,426 - INFO - Pattern 'create_novel' updated successfully
+2024-08-02 12:34:42,426 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:42,428 - INFO - Retrieving patterns
+2024-08-02 12:34:43,457 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:43,458 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:43,478 - INFO - Pattern 'create_backlinks' updated successfully
+2024-08-02 12:34:43,478 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:43,480 - INFO - Retrieving patterns
+2024-08-02 12:34:44,440 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:44,441 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:44,462 - INFO - Pattern 'create_lesson_plan' updated successfully
+2024-08-02 12:34:44,462 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:44,465 - INFO - Retrieving patterns
+2024-08-02 12:34:45,455 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:45,456 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:45,476 - INFO - Pattern 'create_prototype' updated successfully
+2024-08-02 12:34:45,476 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:45,478 - INFO - Retrieving patterns
+2024-08-02 12:34:46,445 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:46,445 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:46,459 - INFO - Pattern 'determine_ai_chance' updated successfully
+2024-08-02 12:34:46,460 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:46,461 - INFO - Retrieving patterns
+2024-08-02 12:34:47,474 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:47,475 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:47,489 - INFO - Pattern 'extract_meeting_minutes' updated successfully
+2024-08-02 12:34:47,490 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:47,491 - INFO - Retrieving patterns
+2024-08-02 12:34:48,498 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:48,499 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:48,515 - INFO - Pattern 'extract_tutorial' updated successfully
+2024-08-02 12:34:48,515 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:48,517 - INFO - Retrieving patterns
+2024-08-02 12:34:49,483 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:49,484 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:49,510 - INFO - Pattern 'extract_readme' updated successfully
+2024-08-02 12:34:49,510 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:49,511 - INFO - Retrieving patterns
+2024-08-02 12:34:50,448 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:50,449 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:50,462 - INFO - Pattern 'improve_notes' updated successfully
+2024-08-02 12:34:50,462 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:50,465 - INFO - Retrieving patterns
+2024-08-02 12:34:51,411 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:51,412 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:51,428 - INFO - Pattern 'improve_novel' updated successfully
+2024-08-02 12:34:51,428 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:51,433 - INFO - Retrieving patterns
+2024-08-02 12:34:52,451 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:52,452 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:52,464 - INFO - Pattern 'extract_novel_name' updated successfully
+2024-08-02 12:34:52,464 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:52,466 - INFO - Retrieving patterns
+2024-08-02 12:34:53,435 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:53,436 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:53,449 - INFO - Pattern 'process_spending' updated successfully
+2024-08-02 12:34:53,449 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:53,452 - INFO - Retrieving patterns
+2024-08-02 12:34:54,574 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:54,575 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:54,593 - INFO - Pattern 'solve_math' updated successfully
+2024-08-02 12:34:54,593 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:54,595 - INFO - Retrieving patterns
+2024-08-02 12:34:55,551 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:55,552 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:55,563 - INFO - Pattern 'search_engine' updated successfully
+2024-08-02 12:34:55,563 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:55,565 - INFO - Retrieving patterns
+2024-08-02 12:34:56,597 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:56,598 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:56,629 - INFO - Pattern 'humanize_ai' updated successfully
+2024-08-02 12:34:56,629 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:56,630 - INFO - Retrieving patterns
+2024-08-02 12:34:57,590 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:57,591 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:57,612 - INFO - Pattern 'fake_news' updated successfully
+2024-08-02 12:34:57,613 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:57,614 - INFO - Retrieving patterns
+2024-08-02 12:34:58,581 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:58,582 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:34:58,593 - INFO - Pattern 'translate_to_spanish' created successfully
+2024-08-02 12:34:58,593 - INFO - 127.0.0.1:55499 - "POST /update_pattern HTTP/1.1" 200
+2024-08-02 12:34:58,595 - INFO - Retrieving patterns
+2024-08-02 12:34:59,595 - INFO - Patterns retrieved successfully
+2024-08-02 12:34:59,596 - INFO - 127.0.0.1:55499 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:35:10,060 - INFO - Running Fabric command with patterns: ['improve_notes', 'translate_to_spanish']
+2024-08-02 12:35:41,838 - INFO - Fabric command executed successfully
+2024-08-02 12:35:41,838 - INFO - 127.0.0.1:55575 - "POST /fabric HTTP/1.1" 200
+2024-08-02 12:42:16,489 - INFO - Retrieving patterns
+2024-08-02 12:42:17,639 - INFO - Patterns retrieved successfully
+2024-08-02 12:42:17,640 - INFO - 127.0.0.1:55914 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:42:17,696 - INFO - Retrieving models
+2024-08-02 12:42:19,981 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:42:19,982 - INFO - 127.0.0.1:55914 - "GET /models HTTP/1.1" 200
+2024-08-02 12:42:36,221 - INFO - 127.0.0.1:55937 - "POST /fabric HTTP/1.1" 422
+2024-08-02 12:44:07,891 - INFO - 127.0.0.1:56016 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 12:44:07,893 - INFO - Retrieving patterns
+2024-08-02 12:44:08,941 - INFO - Patterns retrieved successfully
+2024-08-02 12:44:08,942 - INFO - 127.0.0.1:56016 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:44:08,989 - INFO - 127.0.0.1:56016 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 12:44:08,990 - INFO - Retrieving models
+2024-08-02 12:44:10,223 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:44:10,223 - INFO - 127.0.0.1:56016 - "GET /models HTTP/1.1" 200
+2024-08-02 12:44:15,685 - INFO - 127.0.0.1:56027 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-02 12:44:15,688 - INFO - 127.0.0.1:56027 - "POST /fabric HTTP/1.1" 422
+2024-08-02 12:47:00,304 - INFO - Retrieving patterns
+2024-08-02 12:47:01,440 - INFO - Patterns retrieved successfully
+2024-08-02 12:47:01,441 - INFO - 127.0.0.1:56142 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:47:01,489 - INFO - Retrieving models
+2024-08-02 12:47:02,801 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:47:02,802 - INFO - 127.0.0.1:56142 - "GET /models HTTP/1.1" 200
+2024-08-02 12:47:09,856 - INFO - Running Fabric command with patterns: ['improve_notes', 'translate_to_spanish']
+2024-08-02 12:47:37,507 - INFO - Fabric command executed successfully
+2024-08-02 12:47:37,508 - INFO - 127.0.0.1:56153 - "POST /fabric HTTP/1.1" 200
+2024-08-02 12:58:05,114 - INFO - 127.0.0.1:56758 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 12:58:05,118 - INFO - Retrieving patterns
+2024-08-02 12:58:06,196 - INFO - Patterns retrieved successfully
+2024-08-02 12:58:06,197 - INFO - 127.0.0.1:56759 - "GET /patterns HTTP/1.1" 200
+2024-08-02 12:58:06,200 - INFO - 127.0.0.1:56759 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 12:58:06,202 - INFO - Retrieving models
+2024-08-02 12:58:07,459 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 12:58:07,460 - INFO - 127.0.0.1:56759 - "GET /models HTTP/1.1" 200

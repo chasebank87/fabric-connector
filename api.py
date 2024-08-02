@@ -70,14 +70,16 @@ class DeletePatternRequest(BaseModel):
     pattern: str
 
 class FabricRequest(BaseModel):
-    pattern: str
+    pattern: list[str]
     model: str
     data: str
+    stream: bool
 
 class YTRequest(BaseModel):
-    pattern: str
+    pattern: list[str]
     model: str
     url: str
+    stream: bool
 
 # Use os.path.expanduser to get the current user's home directory
 if sys.platform == "darwin":
@@ -100,19 +102,30 @@ async def fabric(request: FabricRequest):
     Runs the Fabric binary with the provided command and returns the output.
     """
     try:
-        logging.info(f"Running Fabric command with pattern: {request.pattern}")
-        if sys.platform == "darwin":
-            output = await run_command([FABRIC_PATH, "-sp", request.pattern, "--text", request.data, "--model", request.model])
-        elif sys.platform == "win32":
-            if request.data:
-                with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-                    temp_file.write(request.data)
-                    temp_file_path = temp_file.name
-            powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{request.pattern}' --model '{request.model}'"
-            output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
-            os.unlink(temp_file_path)
+        logging.info(f"Running Fabric command with patterns: {request.pattern}")
+        final_output = ""
+        input_data = request.data
+        
+        for pattern in request.pattern:
+            if sys.platform == "darwin":
+                output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
+            elif sys.platform == "win32":
+                if input_data:
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model '{request.model}'"
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
+                os.unlink(temp_file_path)
+            
+            if request.stream:
+                input_data = output  # Use the output of the current pattern as the input for the next
+                final_output = output  # The final output is the last pattern's output
+            else:
+                final_output += output + "\n\n"  # Concatenate outputs if not streaming
+        
         logging.info("Fabric command executed successfully")
-        return {"output": output}
+        return {"output": final_output.strip()}
     except subprocess.CalledProcessError as e:
         logging.error(f"Error executing Fabric command: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -173,19 +186,33 @@ async def yt(request: YTRequest):
         logging.info(f"Running YT command with URL: {request.url}")
         if sys.platform == "darwin":
             transcript = await run_command([YT_PATH, request.url])
-            output = await run_command([FABRIC_PATH, "-sp", request.pattern, "--text", transcript, "--model", request.model])
         elif sys.platform == "win32":
-            output = await run_command(["wsl", "-e", YT_PATH, request.url])
-            if output:
+            transcript = await run_command(["wsl", "-e", YT_PATH, request.url])
+        
+        logging.info("YT command executed successfully, running Fabric command")
+        
+        final_output = ""
+        input_data = transcript
+        
+        for pattern in request.pattern:
+            if sys.platform == "darwin":
+                output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
+            elif sys.platform == "win32":
                 with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-                    temp_file.write(output)
+                    temp_file.write(input_data)
                     temp_file_path = temp_file.name
-                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{request.pattern}' --model {request.model}"
+                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
                 output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
                 os.unlink(temp_file_path)
-        logging.info("YT command executed successfully, running Fabric command")
+            
+            if request.stream:
+                input_data = output  # Use the output of the current pattern as the input for the next
+                final_output = output  # The final output is the last pattern's output
+            else:
+                final_output += output + "\n\n"  # Concatenate outputs if not streaming
+        
         logging.info("Fabric command executed successfully")
-        return {"output": output}
+        return {"output": final_output.strip()}
     except subprocess.CalledProcessError as e:
         logging.error(f"Error executing YT or Fabric command: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
