@@ -81,16 +81,24 @@ class YTRequest(BaseModel):
     url: str
     stream: bool
 
+class TSRequest(BaseModel):
+    pattern: list[str]
+    model: str
+    path: str
+    stream: bool
+
 # Use os.path.expanduser to get the current user's home directory
 if sys.platform == "darwin":
     HOME_DIR = os.path.expanduser("~")
     FABRIC_PATH = os.path.join(HOME_DIR, ".local", "bin", "fabric")
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt")
+    TS_PATH = os.path.join(HOME_DIR, ".local", "bin", "ts")
     PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns")
 elif sys.platform == "win32":
     HOME_DIR = os.path.expanduser("~").replace("Users", "home").replace("C:", "")
     FABRIC_PATH = os.path.join(HOME_DIR, ".local", "bin", "fabric").replace("\\", "/")
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt").replace("\\", "/")
+    TS_PATH = os.path.join(HOME_DIR, ".local", "bin", "ts").replace("\\", "/")
     PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns").replace("\\", "/")
 else:
     print("Unsupported operating system")
@@ -188,6 +196,46 @@ async def yt(request: YTRequest):
             transcript = await run_command([YT_PATH, request.url])
         elif sys.platform == "win32":
             transcript = await run_command(["wsl", "-e", YT_PATH, request.url])
+        
+        logging.info("YT command executed successfully, running Fabric command")
+        
+        final_output = ""
+        input_data = transcript
+        
+        for pattern in request.pattern:
+            if sys.platform == "darwin":
+                output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
+            elif sys.platform == "win32":
+                with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                    temp_file.write(input_data)
+                    temp_file_path = temp_file.name
+                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
+                os.unlink(temp_file_path)
+            
+            if request.stream:
+                input_data = output  # Use the output of the current pattern as the input for the next
+                final_output = output  # The final output is the last pattern's output
+            else:
+                final_output += output + "\n\n"  # Concatenate outputs if not streaming
+        
+        logging.info("Fabric command executed successfully")
+        return {"output": final_output.strip()}
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Error executing YT or Fabric command: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@app.post("/ts")
+async def ts(request: TSRequest):
+    """
+    Runs the ts binary with the provided command and returns the output.
+    """
+    try:
+        logging.info(f"Running TS command with file: {request.path}")
+        if sys.platform == "darwin":
+            transcript = await run_command([TS_PATH, request.path])
+        elif sys.platform == "win32":
+            transcript = await run_command(["wsl", "-e", YT_PATH, request.path])
         
         logging.info("YT command executed successfully, running Fabric command")
         

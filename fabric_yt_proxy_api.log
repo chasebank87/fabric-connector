@@ -407,3 +407,187 @@
 2024-08-02 12:58:06,202 - INFO - Retrieving models
 2024-08-02 12:58:07,459 - INFO - Models retrieved successfully. Count: 42
 2024-08-02 12:58:07,460 - INFO - 127.0.0.1:56759 - "GET /models HTTP/1.1" 200
+2024-08-02 21:37:55,295 - INFO - Starting API server
+2024-08-02 21:37:55,317 - INFO - Started server process [9690]
+2024-08-02 21:37:55,317 - INFO - Waiting for application startup.
+2024-08-02 21:37:55,317 - INFO - Application startup complete.
+2024-08-02 21:37:55,317 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-02 21:38:17,444 - INFO - 127.0.0.1:52892 - "GET /docs HTTP/1.1" 200
+2024-08-02 21:38:17,622 - INFO - 127.0.0.1:52892 - "GET /openapi.json HTTP/1.1" 200
+2024-08-02 21:44:54,845 - INFO - 10.0.78.206:6266 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 21:44:54,937 - INFO - Retrieving patterns
+2024-08-02 21:44:56,770 - INFO - Patterns retrieved successfully
+2024-08-02 21:44:56,770 - INFO - 10.0.78.206:30439 - "GET /patterns HTTP/1.1" 200
+2024-08-02 21:44:56,924 - INFO - 10.0.78.206:63299 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 21:44:56,979 - INFO - Retrieving models
+2024-08-02 21:44:58,295 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 21:44:58,295 - INFO - 10.0.78.206:1230 - "GET /models HTTP/1.1" 200
+2024-08-02 21:59:28,093 - INFO - 10.0.78.206:24410 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 21:59:28,152 - INFO - Retrieving patterns
+2024-08-02 21:59:29,400 - INFO - Patterns retrieved successfully
+2024-08-02 21:59:29,401 - INFO - 10.0.78.206:42007 - "GET /patterns HTTP/1.1" 200
+2024-08-02 21:59:29,542 - INFO - 10.0.78.206:41612 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 21:59:29,625 - INFO - Retrieving models
+2024-08-02 21:59:30,969 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 21:59:30,970 - INFO - 10.0.78.206:24430 - "GET /models HTTP/1.1" 200
+2024-08-02 22:03:34,287 - INFO - 10.0.78.206:42732 - "OPTIONS /yt HTTP/1.1" 200
+2024-08-02 22:03:34,459 - INFO - Running YT command with URL: PM.mov
+2024-08-02 22:03:35,030 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:03:36,760 - INFO - Fabric command executed successfully
+2024-08-02 22:03:36,761 - INFO - 10.0.78.206:45740 - "POST /yt HTTP/1.1" 200
+2024-08-02 22:08:26,302 - INFO - Retrieving patterns
+2024-08-02 22:08:27,432 - INFO - Patterns retrieved successfully
+2024-08-02 22:08:27,433 - INFO - 10.0.78.206:37990 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:08:27,550 - INFO - Retrieving models
+2024-08-02 22:08:29,749 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:08:29,749 - INFO - 10.0.78.206:26665 - "GET /models HTTP/1.1" 200
+2024-08-02 22:09:26,102 - INFO - 10.0.78.206:3404 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-02 22:09:26,164 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:09:32,867 - INFO - Fabric command executed successfully
+2024-08-02 22:09:32,867 - INFO - 10.0.78.206:5912 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:09:49,076 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:09:55,976 - INFO - Fabric command executed successfully
+2024-08-02 22:09:55,977 - INFO - 10.0.78.206:13169 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:12:06,532 - INFO - 10.0.78.206:46519 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 22:12:06,589 - INFO - Retrieving patterns
+2024-08-02 22:12:07,711 - INFO - Patterns retrieved successfully
+2024-08-02 22:12:07,712 - INFO - 10.0.78.206:28141 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:12:07,768 - INFO - 10.0.78.206:46009 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 22:12:07,817 - INFO - Retrieving models
+2024-08-02 22:12:09,216 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:12:09,217 - INFO - 10.0.78.206:58777 - "GET /models HTTP/1.1" 200
+2024-08-02 22:12:24,901 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:12:32,829 - INFO - Fabric command executed successfully
+2024-08-02 22:12:32,829 - INFO - 10.0.78.206:39928 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:14:11,398 - INFO - Retrieving patterns
+2024-08-02 22:14:12,571 - INFO - Patterns retrieved successfully
+2024-08-02 22:14:12,572 - INFO - 10.0.78.206:16907 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:14:12,624 - INFO - Retrieving models
+2024-08-02 22:14:13,936 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:14:13,937 - INFO - 10.0.78.206:62729 - "GET /models HTTP/1.1" 200
+2024-08-02 22:14:27,158 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:14:33,980 - INFO - Fabric command executed successfully
+2024-08-02 22:14:33,980 - INFO - 10.0.78.206:28295 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:25:36,863 - INFO - 10.0.78.206:56745 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 22:25:36,952 - INFO - Retrieving patterns
+2024-08-02 22:25:38,145 - INFO - Patterns retrieved successfully
+2024-08-02 22:25:38,146 - INFO - 10.0.78.206:29755 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:25:38,204 - INFO - 10.0.78.206:64712 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 22:25:38,403 - INFO - Retrieving models
+2024-08-02 22:25:39,803 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:25:39,803 - INFO - 10.0.78.206:56201 - "GET /models HTTP/1.1" 200
+2024-08-02 22:25:49,148 - INFO - 10.0.78.206:30873 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-02 22:25:49,288 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:25:51,217 - INFO - Fabric command executed successfully
+2024-08-02 22:25:51,218 - INFO - 10.0.78.206:56593 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:25:55,829 - INFO - 10.0.78.206:36703 - "OPTIONS /ts HTTP/1.1" 200
+2024-08-02 22:25:55,894 - INFO - Running TS command with file: /chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.08.52 PM.mov
+2024-08-02 22:25:56,688 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:25:58,526 - INFO - Fabric command executed successfully
+2024-08-02 22:25:58,527 - INFO - 10.0.78.206:19077 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:26:45,652 - INFO - 127.0.0.1:55790 - "GET /docs HTTP/1.1" 200
+2024-08-02 22:26:45,850 - INFO - 127.0.0.1:55790 - "GET /openapi.json HTTP/1.1" 200
+2024-08-02 22:27:31,958 - INFO - Running TS command with file: /chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.08.52 PM.mov
+2024-08-02 22:27:32,504 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:27:36,726 - INFO - Fabric command executed successfully
+2024-08-02 22:27:36,727 - INFO - 127.0.0.1:55791 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:30:59,063 - INFO - Starting API server
+2024-08-02 22:30:59,086 - INFO - Started server process [37094]
+2024-08-02 22:30:59,086 - INFO - Waiting for application startup.
+2024-08-02 22:30:59,086 - INFO - Application startup complete.
+2024-08-02 22:30:59,086 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-02 22:31:08,904 - INFO - 127.0.0.1:56050 - "GET /docs HTTP/1.1" 200
+2024-08-02 22:31:09,064 - INFO - 127.0.0.1:56050 - "GET /openapi.json HTTP/1.1" 200
+2024-08-02 22:31:21,002 - INFO - Running TS command with file: /chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.08.52 PM.mov
+2024-08-02 22:31:21,611 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:31:26,166 - INFO - Fabric command executed successfully
+2024-08-02 22:31:26,166 - INFO - 127.0.0.1:56051 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:34:58,024 - INFO - 127.0.0.1:56280 - "GET /docs HTTP/1.1" 200
+2024-08-02 22:34:58,134 - INFO - 127.0.0.1:56280 - "GET /openapi.json HTTP/1.1" 200
+2024-08-02 22:35:30,197 - INFO - Retrieving patterns
+2024-08-02 22:35:31,578 - INFO - Patterns retrieved successfully
+2024-08-02 22:35:31,579 - INFO - 10.0.78.206:10672 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:35:31,708 - INFO - Retrieving models
+2024-08-02 22:35:33,022 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:35:33,022 - INFO - 10.0.78.206:40540 - "GET /models HTTP/1.1" 200
+2024-08-02 22:35:47,595 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:35:49,337 - INFO - Fabric command executed successfully
+2024-08-02 22:35:49,337 - INFO - 10.0.78.206:52199 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:36:25,137 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.08.52 PM.mov
+2024-08-02 22:36:25,696 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:36:30,506 - INFO - Fabric command executed successfully
+2024-08-02 22:36:30,506 - INFO - 127.0.0.1:56357 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:41:29,613 - INFO - 10.0.78.206:59173 - "OPTIONS /ts HTTP/1.1" 200
+2024-08-02 22:41:29,665 - INFO - Running TS command with file: clipboard
+2024-08-02 22:41:30,282 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:41:34,345 - INFO - Fabric command executed successfully
+2024-08-02 22:41:34,345 - INFO - 10.0.78.206:4116 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:41:38,629 - INFO - 10.0.78.206:1876 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 22:41:38,861 - INFO - Retrieving patterns
+2024-08-02 22:41:39,974 - INFO - Patterns retrieved successfully
+2024-08-02 22:41:39,975 - INFO - 10.0.78.206:33758 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:41:40,043 - INFO - 10.0.78.206:13288 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 22:41:40,089 - INFO - Retrieving models
+2024-08-02 22:41:41,482 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:41:41,482 - INFO - 10.0.78.206:4354 - "GET /models HTTP/1.1" 200
+2024-08-02 22:41:58,292 - INFO - 10.0.78.206:41819 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-02 22:41:58,381 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:42:00,703 - INFO - Fabric command executed successfully
+2024-08-02 22:42:00,703 - INFO - 10.0.78.206:47156 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:43:59,735 - INFO - Retrieving patterns
+2024-08-02 22:44:00,883 - INFO - Patterns retrieved successfully
+2024-08-02 22:44:00,884 - INFO - 10.0.78.206:31403 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:44:01,052 - INFO - Retrieving models
+2024-08-02 22:44:02,365 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:44:02,366 - INFO - 10.0.78.206:47590 - "GET /models HTTP/1.1" 200
+2024-08-02 22:44:15,506 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:44:17,581 - INFO - Fabric command executed successfully
+2024-08-02 22:44:17,582 - INFO - 10.0.78.206:64121 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:44:17,782 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-02 22:44:18,383 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:44:22,879 - INFO - Fabric command executed successfully
+2024-08-02 22:44:22,880 - INFO - 10.0.78.206:8206 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:45:10,816 - INFO - Starting API server
+2024-08-02 22:45:10,837 - INFO - Started server process [45274]
+2024-08-02 22:45:10,837 - INFO - Waiting for application startup.
+2024-08-02 22:45:10,838 - INFO - Application startup complete.
+2024-08-02 22:45:10,838 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-02 22:45:23,008 - INFO - Starting API server
+2024-08-02 22:45:23,027 - INFO - Started server process [45421]
+2024-08-02 22:45:23,027 - INFO - Waiting for application startup.
+2024-08-02 22:45:23,027 - INFO - Application startup complete.
+2024-08-02 22:45:23,028 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-02 22:45:28,878 - INFO - 127.0.0.1:56942 - "GET /docs HTTP/1.1" 200
+2024-08-02 22:45:29,012 - INFO - 127.0.0.1:56942 - "GET /openapi.json HTTP/1.1" 200
+2024-08-02 22:45:45,848 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.08.52 PM.mov
+2024-08-02 22:45:47,569 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:45:49,254 - INFO - Fabric command executed successfully
+2024-08-02 22:45:49,255 - INFO - 127.0.0.1:56943 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:46:20,472 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-02 22:46:23,947 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:46:27,309 - INFO - Fabric command executed successfully
+2024-08-02 22:46:27,309 - INFO - 127.0.0.1:56985 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:47:19,951 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-02 22:47:22,702 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-02 22:47:24,838 - INFO - Fabric command executed successfully
+2024-08-02 22:47:24,838 - INFO - 10.0.78.206:20324 - "POST /fabric HTTP/1.1" 200
+2024-08-02 22:47:25,033 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:47:28,219 - INFO - Fabric command executed successfully
+2024-08-02 22:47:28,220 - INFO - 10.0.78.206:1822 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:53:14,748 - INFO - 10.0.78.206:3194 - "OPTIONS /patterns HTTP/1.1" 200
+2024-08-02 22:53:14,906 - INFO - Retrieving patterns
+2024-08-02 22:53:16,101 - INFO - Patterns retrieved successfully
+2024-08-02 22:53:16,102 - INFO - 10.0.78.206:18444 - "GET /patterns HTTP/1.1" 200
+2024-08-02 22:53:16,314 - INFO - 10.0.78.206:44296 - "OPTIONS /models HTTP/1.1" 200
+2024-08-02 22:53:16,396 - INFO - Retrieving models
+2024-08-02 22:53:17,816 - INFO - Models retrieved successfully. Count: 42
+2024-08-02 22:53:17,816 - INFO - 10.0.78.206:22835 - "GET /models HTTP/1.1" 200
+2024-08-02 22:53:39,541 - INFO - 10.0.78.206:14604 - "OPTIONS /ts HTTP/1.1" 200
+2024-08-02 22:53:39,595 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-02 22:53:42,224 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:53:43,941 - INFO - Fabric command executed successfully
+2024-08-02 22:53:43,941 - INFO - 10.0.78.206:27783 - "POST /ts HTTP/1.1" 200
+2024-08-02 22:54:16,807 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-02 22:54:19,154 - INFO - YT command executed successfully, running Fabric command
+2024-08-02 22:54:23,921 - INFO - Fabric command executed successfully
+2024-08-02 22:54:23,921 - INFO - 10.0.78.206:1350 - "POST /ts HTTP/1.1" 200
