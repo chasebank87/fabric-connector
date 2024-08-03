@@ -591,3 +591,261 @@
 2024-08-02 22:54:19,154 - INFO - YT command executed successfully, running Fabric command
 2024-08-02 22:54:23,921 - INFO - Fabric command executed successfully
 2024-08-02 22:54:23,921 - INFO - 10.0.78.206:1350 - "POST /ts HTTP/1.1" 200
+2024-08-03 00:15:51,203 - INFO - Starting API server
+2024-08-03 00:15:51,227 - INFO - Started server process [6250]
+2024-08-03 00:15:51,227 - INFO - Waiting for application startup.
+2024-08-03 00:15:51,227 - INFO - Application startup complete.
+2024-08-03 00:15:51,228 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 00:16:02,451 - INFO - 10.0.78.206:44097 - "OPTIONS /ts HTTP/1.1" 200
+2024-08-03 00:16:02,585 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-07-30 at 1.02.06 PM.mov
+2024-08-03 00:17:05,267 - INFO - YT command executed successfully, running Fabric command
+2024-08-03 00:17:07,196 - INFO - Fabric command executed successfully
+2024-08-03 00:17:07,196 - INFO - 10.0.78.206:63438 - "POST /ts HTTP/1.1" 200
+2024-08-03 00:17:26,469 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-07-30 at 1.02.06 PM.mov
+2024-08-03 00:18:28,808 - INFO - YT command executed successfully, running Fabric command
+2024-08-03 00:18:39,177 - INFO - Fabric command executed successfully
+2024-08-03 00:18:39,178 - INFO - 10.0.78.206:60960 - "POST /ts HTTP/1.1" 200
+2024-08-03 00:18:49,527 - INFO - Starting API server
+2024-08-03 00:18:49,549 - INFO - Started server process [8415]
+2024-08-03 00:18:49,549 - INFO - Waiting for application startup.
+2024-08-03 00:18:49,550 - INFO - Application startup complete.
+2024-08-03 00:18:49,550 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 00:19:17,654 - INFO - 10.0.78.206:29595 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-03 00:19:17,792 - INFO - Running Fabric command with patterns: ['extract_meeting_minutes']
+2024-08-03 00:19:27,411 - INFO - Fabric command executed successfully
+2024-08-03 00:19:27,412 - INFO - 10.0.78.206:7463 - "POST /fabric HTTP/1.1" 200
+2024-08-03 00:19:34,817 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-07-30 at 1.02.06 PM.mov
+2024-08-03 00:19:34,819 - INFO - /opt/homebrew/anaconda3/envs/fabric_yt_proxy/bin:/opt/homebrew/anaconda3/condabin:/opt/homebrew/anaconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/chase/.cargo/bin:/Users/chase/.local/bin:/Users/chase/.local/bin:/Users/chase/.cargo/bin
+2024-08-03 00:20:40,206 - INFO - YT command executed successfully, running Fabric command
+2024-08-03 00:20:49,905 - INFO - Fabric command executed successfully
+2024-08-03 00:20:49,905 - INFO - 10.0.78.206:48754 - "POST /ts HTTP/1.1" 200
+2024-08-03 02:51:54,648 - INFO - Starting API server
+2024-08-03 02:51:54,672 - INFO - Started server process [23535]
+2024-08-03 02:51:54,672 - INFO - Waiting for application startup.
+2024-08-03 02:51:54,673 - INFO - Application startup complete.
+2024-08-03 02:51:54,673 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 02:52:12,086 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 02:52:26,171 - INFO - YT command executed successfully, running Fabric command
+2024-08-03 02:52:29,012 - INFO - Fabric command executed successfully
+2024-08-03 02:52:29,013 - INFO - 10.0.78.206:56843 - "POST /ts HTTP/1.1" 200
+2024-08-03 02:53:56,476 - INFO - Starting API server
+2024-08-03 02:53:56,501 - INFO - Started server process [25015]
+2024-08-03 02:53:56,501 - INFO - Waiting for application startup.
+2024-08-03 02:53:56,501 - INFO - Application startup complete.
+2024-08-03 02:53:56,501 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 02:54:06,154 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 02:54:07,119 - ERROR - Error executing YT or Fabric command: Command '['whisper', '/Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12\u202fPM.mov', '--output_dir', '']' returned non-zero exit status 1.
+2024-08-03 02:54:07,119 - INFO - 10.0.78.206:52857 - "POST /ts HTTP/1.1" 500
+2024-08-03 02:57:35,584 - INFO - Starting API server
+2024-08-03 02:57:35,607 - INFO - Started server process [27740]
+2024-08-03 02:57:35,607 - INFO - Waiting for application startup.
+2024-08-03 02:57:35,607 - INFO - Application startup complete.
+2024-08-03 02:57:35,607 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 02:57:44,722 - INFO - Starting API server
+2024-08-03 02:57:44,743 - INFO - Started server process [27911]
+2024-08-03 02:57:44,743 - INFO - Waiting for application startup.
+2024-08-03 02:57:44,743 - INFO - Application startup complete.
+2024-08-03 02:57:44,743 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 02:57:53,076 - INFO - 10.0.78.206:39114 - "OPTIONS /ts HTTP/1.1" 200
+2024-08-03 02:57:53,123 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 02:57:54,320 - ERROR - Error executing YT or Fabric command: Command '['whisper', '/Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12\u202fPM.mov', '--output_format', 'txt', '--output', '/Users/chase/.local/ts_output']' returned non-zero exit status 2.
+2024-08-03 02:57:54,320 - INFO - 10.0.78.206:24113 - "POST /ts HTTP/1.1" 500
+2024-08-03 02:58:17,153 - INFO - Starting API server
+2024-08-03 02:58:17,174 - INFO - Started server process [28342]
+2024-08-03 02:58:17,174 - INFO - Waiting for application startup.
+2024-08-03 02:58:17,174 - INFO - Application startup complete.
+2024-08-03 02:58:17,175 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 02:58:21,948 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 02:58:35,510 - INFO - YT command executed successfully, running Fabric command
+2024-08-03 02:58:39,203 - INFO - Fabric command executed successfully
+2024-08-03 02:58:39,203 - INFO - 10.0.78.206:14384 - "POST /ts HTTP/1.1" 200
+2024-08-03 03:01:05,933 - INFO - Starting API server
+2024-08-03 03:01:05,950 - INFO - Started server process [30405]
+2024-08-03 03:01:05,950 - INFO - Waiting for application startup.
+2024-08-03 03:01:05,950 - INFO - Application startup complete.
+2024-08-03 03:01:05,950 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 03:01:31,804 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 03:01:44,638 - INFO - TS command executed successfully, running Fabric command
+2024-08-03 03:01:44,639 - INFO - 10.0.78.206:13908 - "POST /ts HTTP/1.1" 500
+2024-08-03 03:01:44,639 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 428, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 163, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/Users/chase/Development/fabric-connector/api.py", line 252, in ts
+    output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
+  File "/Users/chase/Development/fabric-connector/proxy.py", line 48, in run_command
+    process = await asyncio.create_subprocess_exec(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/asyncio/subprocess.py", line 236, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/asyncio/base_events.py", line 1676, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/asyncio/unix_events.py", line 197, in _make_subprocess_transport
+    transp = _UnixSubprocessTransport(self, protocol, args, shell,
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/asyncio/base_subprocess.py", line 36, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/asyncio/unix_events.py", line 789, in _start
+    self._proc = subprocess.Popen(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/subprocess.py", line 1770, in _execute_child
+    self.pid = _posixsubprocess.fork_exec(
+TypeError: expected str, bytes or os.PathLike object, not list
+2024-08-03 03:02:57,527 - INFO - Starting API server
+2024-08-03 03:02:57,544 - INFO - Started server process [31801]
+2024-08-03 03:02:57,544 - INFO - Waiting for application startup.
+2024-08-03 03:02:57,544 - INFO - Application startup complete.
+2024-08-03 03:02:57,545 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 03:03:06,217 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 03:03:19,353 - INFO - TS command executed successfully, running Fabric command
+2024-08-03 03:03:22,464 - INFO - Fabric command executed successfully
+2024-08-03 03:03:22,465 - INFO - 10.0.78.206:56438 - "POST /ts HTTP/1.1" 200
+2024-08-03 03:08:13,983 - INFO - Starting API server
+2024-08-03 03:08:14,006 - INFO - Started server process [35971]
+2024-08-03 03:08:14,007 - INFO - Waiting for application startup.
+2024-08-03 03:08:14,007 - INFO - Application startup complete.
+2024-08-03 03:08:14,007 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 03:08:18,541 - INFO - 10.0.78.206:54514 - "OPTIONS /ts HTTP/1.1" 200
+2024-08-03 03:08:18,686 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 03:08:33,181 - INFO - 10.0.78.206:49378 - "POST /ts HTTP/1.1" 500
+2024-08-03 03:08:33,182 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 428, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 163, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/Users/chase/Development/fabric-connector/api.py", line 244, in ts
+    os.remove()
+TypeError: remove() missing required argument 'path' (pos 1)
+2024-08-03 03:10:50,173 - INFO - Starting API server
+2024-08-03 03:10:50,196 - INFO - Started server process [37900]
+2024-08-03 03:10:50,196 - INFO - Waiting for application startup.
+2024-08-03 03:10:50,196 - INFO - Application startup complete.
+2024-08-03 03:10:50,196 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 03:10:53,159 - INFO - 10.0.78.206:33973 - "OPTIONS /fabric HTTP/1.1" 200
+2024-08-03 03:10:53,212 - INFO - Running Fabric command with patterns: ['extract_ideas']
+2024-08-03 03:10:55,686 - INFO - Fabric command executed successfully
+2024-08-03 03:10:55,688 - INFO - 10.0.78.206:36060 - "POST /fabric HTTP/1.1" 200
+2024-08-03 03:11:02,377 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 03:11:15,916 - INFO - 10.0.78.206:58415 - "POST /ts HTTP/1.1" 500
+2024-08-03 03:11:15,916 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 428, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/opt/homebrew/anaconda3/envs/fabric_yt_proxy/lib/python3.9/site-packages/fastapi/routing.py", line 163, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/Users/chase/Development/fabric-connector/api.py", line 244, in ts
+    os.remove()
+TypeError: remove() missing required argument 'path' (pos 1)
+2024-08-03 03:12:05,334 - INFO - Starting API server
+2024-08-03 03:12:05,352 - INFO - Started server process [38827]
+2024-08-03 03:12:05,352 - INFO - Waiting for application startup.
+2024-08-03 03:12:05,353 - INFO - Application startup complete.
+2024-08-03 03:12:05,353 - INFO - Uvicorn running on http://0.0.0.0:49152 (Press CTRL+C to quit)
+2024-08-03 03:12:12,423 - INFO - Running TS command with file: /Users/chase/Documents/Screenshots/Screen Recording 2024-08-02 at 10.38.12 PM.mov
+2024-08-03 03:12:26,117 - INFO - TS command executed successfully, running Fabric command
+2024-08-03 03:12:29,000 - INFO - Fabric command executed successfully
+2024-08-03 03:12:29,001 - INFO - 10.0.78.206:11078 - "POST /ts HTTP/1.1" 200

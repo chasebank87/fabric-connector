@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import uvicorn
 import subprocess
 from typing import List, Dict
-from proxy import execute_fabric_command, execute_yt_command, run_command
+from proxy import execute_fabric_command, execute_yt_command, run_command, replace_drive
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 import os
@@ -14,6 +14,7 @@ import tempfile
 import shutil
 import hashlib
 import uuid
+import re
 
 # Set up logging
 log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fabric_yt_proxy_api.log')
@@ -92,13 +93,16 @@ if sys.platform == "darwin":
     HOME_DIR = os.path.expanduser("~")
     FABRIC_PATH = os.path.join(HOME_DIR, ".local", "bin", "fabric")
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt")
-    TS_PATH = os.path.join(HOME_DIR, ".local", "bin", "ts")
+    #TS_PATH = os.path.join(HOME_DIR, ".local", "bin", "ts")
+    TS_PATH = "whisper"
+    TS_OUTPUT_PATH = os.path.join(HOME_DIR, ".local", "ts_output")
     PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns")
 elif sys.platform == "win32":
     HOME_DIR = os.path.expanduser("~").replace("Users", "home").replace("C:", "")
     FABRIC_PATH = os.path.join(HOME_DIR, ".local", "bin", "fabric").replace("\\", "/")
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt").replace("\\", "/")
     TS_PATH = os.path.join(HOME_DIR, ".local", "bin", "ts").replace("\\", "/")
+    TS_OUTPUT_PATH = os.path.join(HOME_DIR, ".local", "ts_output").replace("\\", "/")
     PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns").replace("\\", "/")
 else:
     print("Unsupported operating system")
@@ -123,7 +127,7 @@ async def fabric(request: FabricRequest):
                         temp_file.write(input_data)
                         temp_file_path = temp_file.name
                 powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model '{request.model}'"
-                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
                 os.unlink(temp_file_path)
             
             if request.stream:
@@ -178,7 +182,7 @@ async def set_model(request: Model):
             output = await run_command([FABRIC_PATH, "--changeDefaultModel", request.model])
         elif sys.platform == "win32":
             powershell_command = f"wsl -e {FABRIC_PATH} --changeDefaultModel '{request.model}'"
-            output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
+            output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
         logging.info("Model set successfully")
         return {"output": output}
     except subprocess.CalledProcessError as e:
@@ -210,7 +214,7 @@ async def yt(request: YTRequest):
                     temp_file.write(input_data)
                     temp_file_path = temp_file.name
                 powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
-                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
                 os.unlink(temp_file_path)
             
             if request.stream:
@@ -233,14 +237,30 @@ async def ts(request: TSRequest):
     try:
         logging.info(f"Running TS command with file: {request.path}")
         if sys.platform == "darwin":
-            transcript = await run_command([TS_PATH, request.path])
+            transcript = await run_command([TS_PATH, request.path, "--output_format", "txt", "--output_dir", TS_OUTPUT_PATH])
+            ## clean up the ouput folder
+            for filename in os.listdir(TS_OUTPUT_PATH):
+                file_path = os.path.join(TS_OUTPUT_PATH, filename)
+                try:
+                    if os.path.isfile(file_path) or os.path.islink(file_path):
+                        os.unlink(file_path)
+                    elif os.path.isdir(file_path):
+                        shutil.rmtree(file_path)
+                except Exception as e:
+                    logging.info('Failed to delete %s. Reason: %s' % (file_path, e))
+            final_output = ""
+            timestamp_pattern = r'^\[\d{1,2}:\d{2}\.\d{3} --> \d{1,2}:\d{2}\.\d{3}\]'
+            input_data = '\n'.join(re.findall(f'{timestamp_pattern}.*', transcript, re.MULTILINE))
         elif sys.platform == "win32":
-            transcript = await run_command(["wsl", "-e", YT_PATH, request.path])
+            drive_pattern = r'(?i)([a-z]):\\?\\?'
+            corrected_path = re.sub(drive_pattern, replace_drive, request.path).replace("\\", "/")
+            logging.info(f"Corrected path: {corrected_path}")
+            powershell_command =  f"wsl --cd /tmp -e {TS_PATH} '{corrected_path}'"
+            transcript = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+            final_output = ""
+            input_data = transcript
         
-        logging.info("YT command executed successfully, running Fabric command")
-        
-        final_output = ""
-        input_data = transcript
+        logging.info("TS command executed successfully, running Fabric command")
         
         for pattern in request.pattern:
             if sys.platform == "darwin":
@@ -250,7 +270,7 @@ async def ts(request: TSRequest):
                     temp_file.write(input_data)
                     temp_file_path = temp_file.name
                 powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
-                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", powershell_command])
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
                 os.unlink(temp_file_path)
             
             if request.stream:

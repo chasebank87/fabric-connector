@@ -21,7 +21,7 @@ def execute_fabric_command(command):
         if sys.platform == "darwin":
             result = subprocess.run([FABRIC_PATH, command], capture_output=True, text=True, check=True)
         elif sys.platform == "win32":
-            result = subprocess.run(["wsl", "-e", FABRIC_PATH, command], capture_output=True, text=True, check=True)
+            result = subprocess.run(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", "wsl", "-e", FABRIC_PATH, command], capture_output=True, text=True, check=True)
         output = result.stdout.strip()
         
         if command == "--list":
@@ -60,6 +60,10 @@ async def run_command(command):
         raise subprocess.CalledProcessError(process.returncode, command, stdout, stderr)
     
     return stdout.strip()
+
+def replace_drive(match):
+    drive_letter = match.group(1).lower()  # Get the drive letter and convert to lowercase
+    return f'/mnt/{drive_letter}/'
 
 # Example usage
 if __name__ == "__main__":

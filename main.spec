@@ -9,6 +9,7 @@ os.makedirs(log_dir, exist_ok=True)
 stdout_log = os.path.join(log_dir, 'stdout.log')
 stderr_log = os.path.join(log_dir, 'stderr.log')
 
+
 a = Analysis(
     ['main.py'],
     pathex=[],
@@ -20,7 +21,7 @@ a = Analysis(
         ('windows_app.py', '.'),
         ('assets/icons/fabric-logo-gif.icns', 'assets/icons/'),
         ('assets/icons/fabric-brain.icns', 'assets/icons/'),
-        ('Info.plist', '.'),
+        ('Info.plist', '.')
     ],
     hiddenimports=['pyperclip','uvicorn.logging', 'uvicorn.loops', 'uvicorn.loops.auto', 'uvicorn.protocols', 'uvicorn.protocols.http', 'uvicorn.protocols.http.auto', 'uvicorn.protocols.websockets', 'uvicorn.protocols.websockets.auto', 'uvicorn.lifespan', 'uvicorn.lifespan.on'],
     hookspath=[],
@@ -64,7 +65,7 @@ app = BUNDLE(
     bundle_identifier='com.chaseelder.fabric_connector',
     info_plist={
         'NSPrincipalClass': 'NSApplication',
-        'NSAppleScriptEnabled': False,
+        'NSAppleScriptEnabled': True,
         'CFBundleDocumentTypes': [
             {
                 'CFBundleTypeName': 'My File Format',
