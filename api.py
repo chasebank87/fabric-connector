@@ -75,18 +75,21 @@ class FabricRequest(BaseModel):
     model: str
     data: str
     stream: bool
+    goCompatibility: bool = False
 
 class YTRequest(BaseModel):
     pattern: list[str]
     model: str
     url: str
     stream: bool
+    goCompatibility: bool = False
 
 class TSRequest(BaseModel):
     pattern: list[str]
     model: str
     path: str
     stream: bool
+    goCompatibility: bool = False
 
 # Use os.path.expanduser to get the current user's home directory
 if sys.platform == "darwin":
@@ -103,7 +106,7 @@ elif sys.platform == "win32":
     YT_PATH = os.path.join(HOME_DIR, ".local", "bin", "yt").replace("\\", "/")
     TS_PATH = os.path.join(HOME_DIR, ".local", "bin", "ts").replace("\\", "/")
     TS_OUTPUT_PATH = os.path.join(HOME_DIR, ".local", "ts_output").replace("\\", "/")
-    PATTERN_PATH = os.path.join(HOME_DIR, ".config", "fabric", "patterns").replace("\\", "/")
+    PATTERN_PATH = os.path.join(os.path.expanduser("~"), ".config", "fabric", "patterns").replace("\\", "/")
 else:
     print("Unsupported operating system")
     sys.exit(1)
@@ -119,16 +122,35 @@ async def fabric(request: FabricRequest):
         input_data = request.data
         
         for pattern in request.pattern:
-            if sys.platform == "darwin":
-                output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
-            elif sys.platform == "win32":
-                if input_data:
-                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-                        temp_file.write(input_data)
-                        temp_file_path = temp_file.name
-                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model '{request.model}'"
-                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
-                os.unlink(temp_file_path)
+            if request.goCompatibility:
+                goFabric = FABRIC_PATH.replace(".local", "go")
+                if sys.platform == "darwin":
+                    if input_data:
+                        with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                            temp_file.write(input_data)
+                            temp_file_path = temp_file.name
+                    command = f"cat '{temp_file_path}' | {goFabric} -sp '{pattern}' --model '{request.model}'"
+                    output = await run_command(["sh", "-c", command])
+                elif sys.platform == "win32":
+                    goFabric = goFabric.replace("/home", "c:/Users")
+                    if input_data:
+                        with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                            temp_file.write(input_data)
+                            temp_file_path = temp_file.name
+                    powershell_command = f"gc '{temp_file_path}' | {goFabric} -sp '{pattern}' --model '{request.model}'"
+                    output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                    os.unlink(temp_file_path)
+            else:
+                if sys.platform == "darwin":
+                    output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
+                elif sys.platform == "win32":
+                    if input_data:
+                        with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                            temp_file.write(input_data)
+                            temp_file_path = temp_file.name
+                    powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model '{request.model}'"
+                    output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                    os.unlink(temp_file_path)
             
             if request.stream:
                 input_data = output  # Use the output of the current pattern as the input for the next
@@ -143,48 +165,79 @@ async def fabric(request: FabricRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/models")
-async def get_models():
-    logging.info("Retrieving models")
-    if sys.platform in ["darwin", "win32"]:
-        result = execute_fabric_command("--listmodels")
-    else:
-        logging.error(f"Unsupported platform: {sys.platform}")
-        raise HTTPException(status_code=500, detail="Unsupported platform")
-
-    if isinstance(result, list):
-        filtered_models = [
-            {"name": item['name']} for item in result 
-            if 'name' in item and item['name'] not in [
-                'GPT Models:', 'Local Models:', 'Claude Models:', 'Google Models:'
-            ] and item['name'].strip()
-        ]
-        
+async def get_models(goCompatibility: bool = False):
+    try:
+        logging.info("Retrieving models")
+        if goCompatibility:
+            goFabric = FABRIC_PATH.replace(".local", "go")
+            if sys.platform in ["darwin", "win32"]:
+                if sys.platform == "win32":
+                    goFabric = goFabric.replace("/home", "c:/Users")
+                    logging.info(f"Using goFabric: {goFabric}")
+                result = execute_fabric_command(command = "--listmodels", path = goFabric, goCompatible=True)
+            else:
+                logging.error(f"Unsupported platform: {sys.platform}")
+                raise HTTPException(status_code=500, detail="Unsupported platform")
+            pattern = r'^\[(\d+)\]\s*(.+)$'
+            filtered_models = []
+            
+            # Split the result string into lines
+            lines = result.split('\n')
+            
+            for line in lines:
+                line = line.strip()
+                match = re.match(pattern, line)
+                if match:
+                    filtered_models.append({"name": match.group(2).strip()})
+        else:
+            if sys.platform in ["darwin", "win32"]:
+                result = execute_fabric_command(command = "--listmodels", path = FABRIC_PATH)
+            else:
+                logging.error(f"Unsupported platform: {sys.platform}")
+                raise HTTPException(status_code=500, detail="Unsupported platform")
+            if isinstance(result, list):
+                filtered_models = [
+                    {"name": item['name']} for item in result 
+                    if 'name' in item and item['name'] not in [
+                        'GPT Models:', 'Local Models:', 'Claude Models:', 'Google Models:'
+                    ] and item['name'].strip()
+                ]
+            
         logging.info(f"Models retrieved successfully. Count: {len(filtered_models)}")
         return {
             "data": {
                 "models": filtered_models
             }
         }
-    else:
-        logging.error(f"Unexpected result type: {type(result)}. Content: {str(result)}")
-        raise HTTPException(status_code=500, detail="Unexpected result format from execute_fabric_command")
-
-
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Error executing Fabric command: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/set_model")
-async def set_model(request: Model):
+async def set_model(request: Model, goCompatibility: bool = False):
     """
     Sets the model to be used by the Fabric binary.
     """
     try:
         logging.info(f"Setting model to: {request.model}")
-        if sys.platform == "darwin":
-            output = await run_command([FABRIC_PATH, "--changeDefaultModel", request.model])
-        elif sys.platform == "win32":
-            powershell_command = f"wsl -e {FABRIC_PATH} --changeDefaultModel '{request.model}'"
-            output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
-        logging.info("Model set successfully")
-        return {"output": output}
+        if goCompatibility:
+            goFabric = FABRIC_PATH.replace(".local", "go")
+            if sys.platform == "darwin":
+                output = await run_command([goFabric, "--changeDefaultModel", request.model])
+            elif sys.platform == "win32":
+                goFabric = goFabric.replace("/home", "c:/Users")
+                powershell_command = f"{goFabric} --changeDefaultModel '{request.model}'"
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+            logging.info("Model set successfully")
+            return {"output": output}
+        else:
+            if sys.platform == "darwin":
+                output = await run_command([FABRIC_PATH, "--changeDefaultModel", request.model])
+            elif sys.platform == "win32":
+                powershell_command = f"wsl -e {FABRIC_PATH} --changeDefaultModel '{request.model}'"
+                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+            logging.info("Model set successfully")
+            return {"output": output}
     except subprocess.CalledProcessError as e:
         logging.error(f"Error setting model: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -196,10 +249,18 @@ async def yt(request: YTRequest):
     """
     try:
         logging.info(f"Running YT command with URL: {request.url}")
-        if sys.platform == "darwin":
-            transcript = await run_command([YT_PATH, request.url])
-        elif sys.platform == "win32":
-            transcript = await run_command(["wsl", "-e", YT_PATH, request.url])
+        if request.goCompatibility:
+            goYT = YT_PATH.replace(".local", "go")
+            if sys.platform == "darwin":
+                transcript = await run_command([goYT, request.url])
+            elif sys.platform == "win32":
+                goYT = goYT.replace("/home", "c:/Users")
+                transcript = await run_command([goYT, request.url])
+        else:
+            if sys.platform == "darwin":
+                transcript = await run_command([YT_PATH, request.url])
+            elif sys.platform == "win32":
+                transcript = await run_command(["wsl", "-e", YT_PATH, request.url])
         
         logging.info("YT command executed successfully, running Fabric command")
         
@@ -207,16 +268,34 @@ async def yt(request: YTRequest):
         input_data = transcript
         
         for pattern in request.pattern:
-            if sys.platform == "darwin":
-                output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
-            elif sys.platform == "win32":
-                with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-                    temp_file.write(input_data)
-                    temp_file_path = temp_file.name
-                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
-                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
-                os.unlink(temp_file_path)
-            
+            if request.goCompatibility:
+                goFabric = FABRIC_PATH.replace(".local", "go")
+                if sys.platform == "darwin":
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    command = f"cat '{temp_file_path}' | {goFabric} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["sh", "-c", command])
+                elif sys.platform == "win32":
+                    goFabric = goFabric.replace("/home", "c:/Users")
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    powershell_command = f"gc '{temp_file_path}' | {goFabric} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                    os.unlink(temp_file_path)
+            else:
+                if sys.platform == "darwin":
+                    output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
+                elif sys.platform == "win32":
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                    os.unlink(temp_file_path)
+                
+                
             if request.stream:
                 input_data = output  # Use the output of the current pattern as the input for the next
                 final_output = output  # The final output is the last pattern's output
@@ -236,42 +315,89 @@ async def ts(request: TSRequest):
     """
     try:
         logging.info(f"Running TS command with file: {request.path}")
-        if sys.platform == "darwin":
-            transcript = await run_command([TS_PATH, request.path, "--output_format", "txt", "--output_dir", TS_OUTPUT_PATH])
-            ## clean up the ouput folder
-            for filename in os.listdir(TS_OUTPUT_PATH):
-                file_path = os.path.join(TS_OUTPUT_PATH, filename)
-                try:
-                    if os.path.isfile(file_path) or os.path.islink(file_path):
-                        os.unlink(file_path)
-                    elif os.path.isdir(file_path):
-                        shutil.rmtree(file_path)
-                except Exception as e:
-                    logging.info('Failed to delete %s. Reason: %s' % (file_path, e))
-            final_output = ""
-            timestamp_pattern = r'^\[\d{1,2}:\d{2}\.\d{3} --> \d{1,2}:\d{2}\.\d{3}\]'
-            input_data = '\n'.join(re.findall(f'{timestamp_pattern}.*', transcript, re.MULTILINE))
-        elif sys.platform == "win32":
-            drive_pattern = r'(?i)([a-z]):\\?\\?'
-            corrected_path = re.sub(drive_pattern, replace_drive, request.path).replace("\\", "/")
-            logging.info(f"Corrected path: {corrected_path}")
-            powershell_command =  f"wsl --cd /tmp -e {TS_PATH} '{corrected_path}'"
-            transcript = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
-            final_output = ""
-            input_data = transcript
+        if request.goCompatibility:
+            if sys.platform == "darwin":
+                transcript = await run_command(["whisper", request.path, "--output_format", "txt", "--output_dir", TS_OUTPUT_PATH])
+                ## clean up the ouput folder
+                for filename in os.listdir(TS_OUTPUT_PATH):
+                    file_path = os.path.join(TS_OUTPUT_PATH, filename)
+                    try:
+                        if os.path.isfile(file_path) or os.path.islink(file_path):
+                            os.unlink(file_path)
+
+                        elif os.path.isdir(file_path):
+                            shutil.rmtree(file_path)
+                    except Exception as e:
+                        logging.info('Failed to delete %s. Reason: %s' % (file_path, e))
+                final_output = ""
+                timestamp_pattern = r'^\[\d{1,2}:\d{2}\.\d{3} --> \d{1,2}:\d{2}\.\d{3}\]'
+                input_data = '\n'.join(re.findall(f'{timestamp_pattern}.*', transcript, re.MULTILINE))
+            elif sys.platform == "win32":
+                drive_pattern = r'(?i)([a-z]):\\?\\?'
+                corrected_path = re.sub(drive_pattern, replace_drive, request.path).replace("\\", "/")
+                logging.info(f"Corrected path: {corrected_path}")
+                powershell_command =  f"whisper '{corrected_path}'"
+                transcript = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                final_output = ""
+                input_data = transcript
+        else:
+            if sys.platform == "darwin":
+                transcript = await run_command([TS_PATH, request.path, "--output_format", "txt", "--output_dir", TS_OUTPUT_PATH])
+                ## clean up the ouput folder
+                for filename in os.listdir(TS_OUTPUT_PATH):
+                    file_path = os.path.join(TS_OUTPUT_PATH, filename)
+                    try:
+                        if os.path.isfile(file_path) or os.path.islink(file_path):
+                            os.unlink(file_path)
+                        elif os.path.isdir(file_path):
+                            shutil.rmtree(file_path)
+                    except Exception as e:
+                        logging.info('Failed to delete %s. Reason: %s' % (file_path, e))
+                final_output = ""
+                timestamp_pattern = r'^\[\d{1,2}:\d{2}\.\d{3} --> \d{1,2}:\d{2}\.\d{3}\]'
+                input_data = '\n'.join(re.findall(f'{timestamp_pattern}.*', transcript, re.MULTILINE))
+            elif sys.platform == "win32":
+                drive_pattern = r'(?i)([a-z]):\\?\\?'
+                corrected_path = re.sub(drive_pattern, replace_drive, request.path).replace("\\", "/")
+                logging.info(f"Corrected path: {corrected_path}")
+                powershell_command =  f"wsl --cd /tmp -e {TS_PATH} '{corrected_path}'"
+                transcript = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                final_output = ""
+                input_data = transcript
         
         logging.info("TS command executed successfully, running Fabric command")
         
         for pattern in request.pattern:
-            if sys.platform == "darwin":
-                output = await run_command([FABRIC_PATH, "-sp", pattern, "--text", input_data, "--model", request.model])
-            elif sys.platform == "win32":
-                with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
-                    temp_file.write(input_data)
-                    temp_file_path = temp_file.name
-                powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
-                output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
-                os.unlink(temp_file_path)
+            if request.goCompatibility:
+                goFabric = FABRIC_PATH.replace(".local", "go")
+                if sys.platform == "darwin":
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    command = f"cat '{temp_file_path}' | {goFabric} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["sh", "-c", command])
+                elif sys.platform == "win32":
+                    goFabric = goFabric.replace("/home", "c:/Users")
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    powershell_command = f"gc '{temp_file_path}' | {goFabric} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                    os.unlink(temp_file_path)
+            else:
+                if sys.platform == "darwin":
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    command = f"cat '{temp_file_path}' | {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["sh", "-c", command])
+                elif sys.platform == "win32":
+                    with tempfile.NamedTemporaryFile(mode='w', delete=False) as temp_file:
+                        temp_file.write(input_data)
+                        temp_file_path = temp_file.name
+                    powershell_command = f"gc '{temp_file_path}' | wsl -e {FABRIC_PATH} -sp '{pattern}' --model {request.model}"
+                    output = await run_command(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", powershell_command])
+                    os.unlink(temp_file_path)
             
             if request.stream:
                 input_data = output  # Use the output of the current pattern as the input for the next
@@ -286,12 +412,20 @@ async def ts(request: TSRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/patterns")
-async def get_patterns():
+async def get_patterns(goCompatibility: bool = False):
     logging.info("Retrieving patterns")
-    if sys.platform == "darwin":
-        result = execute_fabric_command("--list")
-    elif sys.platform == "win32":
-        result = execute_fabric_command("--list")
+    if goCompatibility:
+        goFabric = FABRIC_PATH.replace(".local", "go")
+        if sys.platform == "darwin":
+            result = execute_fabric_command(command = "--listpatterns", path = goFabric, goCompatible=True)
+        elif sys.platform == "win32":
+            goFabric = goFabric.replace("/home", "c:/Users")
+            result = execute_fabric_command(command = "--listpatterns", path = goFabric, goCompatible=True)
+    else:
+        if sys.platform == "darwin":
+            result = execute_fabric_command("--list", path = FABRIC_PATH)
+        elif sys.platform == "win32":
+            result = execute_fabric_command("--list", path = FABRIC_PATH)
     if isinstance(result, list):
         logging.info("Patterns retrieved successfully")
         return {"data": {"patterns": result}}
@@ -315,7 +449,7 @@ async def update_pattern(request: UpdatePatternRequest):
         os.makedirs(os.path.dirname(pattern_file_path), exist_ok=True)
 
         # Write the content to the file
-        with open(pattern_file_path, 'w') as f:
+        with open(pattern_file_path, 'w', encoding='utf-8') as f:
             f.write(request.content)
 
         if file_existed:

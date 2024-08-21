@@ -16,6 +16,7 @@ from LaunchServices import (
     LSSharedFileListItemRemove,
     LSSharedFileListInsertItemURL
 )
+
 from api import start_api_server, stop_api_server, API_KEY
 
 class FabricYTProxyApp(rumps.App):

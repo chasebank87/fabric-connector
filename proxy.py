@@ -16,22 +16,31 @@ else:
     print("Unsupported operating system")
     sys.exit(1)
 
-def execute_fabric_command(command):
+def execute_fabric_command(command, path, goCompatible=False):
     try:
         if sys.platform == "darwin":
-            result = subprocess.run([FABRIC_PATH, command], capture_output=True, text=True, check=True)
+            result = subprocess.run([path, command], capture_output=True, text=True, check=True)
         elif sys.platform == "win32":
-            result = subprocess.run(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", "wsl", "-e", FABRIC_PATH, command], capture_output=True, text=True, check=True)
+            if goCompatible:
+                result = subprocess.run(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", path, command], capture_output=True, text=True, check=True)
+            else:
+                result = subprocess.run(["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-WindowStyle", "Hidden", "-Command", "wsl -e", path, command], capture_output=True, text=True, check=True)
         output = result.stdout.strip()
         
-        if command == "--list":
-            # Split the output into lines and create a list of pattern names
-            patterns = [{"name": line.strip()} for line in output.split('\n') if line.strip()]
-            return patterns
-        if command == "--listmodels":
-            # Split the output into lines and create a list of pattern names
-            models = [{"name": line.strip()} for line in output.split('\n') if line.strip()]
-            return models
+        if goCompatible:
+            if command == "--listpatterns":
+                # Split the output into lines and create a list of pattern names
+                patterns = [{"name": line.strip()} for line in output.split('\n') if line.strip()][1:]
+                return patterns
+        else:
+            if command == "--list":
+                # Split the output into lines and create a list of pattern names
+                patterns = [{"name": line.strip()} for line in output.split('\n') if line.strip()]
+                return patterns
+            if command == "--listmodels":
+                # Split the output into lines and create a list of pattern names
+                models = [{"name": line.strip()} for line in output.split('\n') if line.strip()]
+                return models
         
         return output
     except subprocess.CalledProcessError as e:
