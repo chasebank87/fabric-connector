@@ -29,7 +29,7 @@ Portable executables are available for MacOS and Windows (Releases)[https://gith
 
 1. Clone the repository (into Obsidian-Plugins Folder?):
     ```sh
-    git clone https://github.com/chasebank87/fabric-connector
+    git clone https://github.com/chasebank87/fabric-connector.git
     cd fabric-connector
     ```
 
