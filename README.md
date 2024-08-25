@@ -27,10 +27,10 @@ Portable executables are available for MacOS and Windows (Releases)[https://gith
 
 ### Steps
 
-1. Clone the repository:
+1. Clone the repository (into Obsidian-Plugins Folder?):
     ```sh
-    git clone https://github.com/yourusername/fabricytproxy.git
-    cd fabricytproxy
+    git clone https://github.com/chasebank87/fabric-connector.git
+    cd fabric-connector
     ```
 
 2. Install the required Python packages:
